@@ -1,9 +1,9 @@
 allprojects {
-	//println 'All projects'
+	println 'All projects'
 }
 
 subprojects {
-	//println 'Sub projects'
+	println 'Sub projects'
 }
 project (':Taashking') {
 	println "Inside Taashking"
