@@ -1,0 +1,16 @@
+allprojects {
+	//println 'All projects'
+}
+
+subprojects {
+	//println 'Sub projects'
+}
+project (':Taashking') {
+	println "Inside Taashking"
+}
+project(':UserCommon') {
+	println "Inside UserCommon"
+}	
+project (':TaashkingCommon') {
+	println "Inside TaashKingCommon"
+}

@@ -1,0 +1,6 @@
+[submodule "taaskingclient.userDB"]
+	path = taaskingclient.userDB
+	url = https://git.assembla.com/taaskingclient.userDB.git
+[submodule "taaskingclient.server"]
+	path = taaskingclient.server
+	url = https://git.assembla.com/taaskingclient.server.git
