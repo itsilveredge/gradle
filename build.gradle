@@ -1,7 +1,7 @@
 allprojects {
 	println 'All projects'
 }
-
+//test
 subprojects {
 	println 'Sub projects'
 }
