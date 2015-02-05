@@ -1,16 +1,265 @@
 allprojects {
 	println 'All projects'
 }
+
 //test
 subprojects {
-	println 'Sub projects'
+	//println 'Sub projects'
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
 }
-project (':Taashking') {
-	println "Inside Taashking"
-}
+
 project(':UserCommon') {
 	println "Inside UserCommon"
+	dependencies {
+		//compile fileTree(dir: 'lib', include: ['*.jar'])
+		compile fileTree('../../resources')
+	}
+
+	sourceSets {
+		main {
+			java {
+				srcDir 'src'
+			}
+			//resources {
+			//	exclude '**/hibernate2.cfg.xml'
+			//	exclude '**/log4j.properties'
+			//}
+			output.classesDir = "bin"
+			println "Inside sourcesets in UserCommon"
+		}	
+	}
+
+	jar {
+		archiveName = "UserCommon.jar"
+		version = null
+		println "Inside jar in UserCommon"
+		
+		from('src') {
+			//include 'hibernate2.cfg.xml'
+			//include 'log4j.properties'
+			//include 'user/hibernate/db/hbm/*.xml'
+			exclude '**/*.java'
+		}
+		///*from('bin') {
+			//exclude '**/*.xml'
+			//exclude '**/*.properties'
+			//exclude '**/*.class'
+		//}*/
+		from('/') {
+			println 'Inside / in UserCommon'
+			include '.classpath'
+			include 'settings.gradle'
+			include '.project'
+			include 'build.gradle'
+			include '.myhibernatedata'
+			include '.gitignore'
+			//exclude '**/*.class'
+		}
+	}
+
+	task cleanExtra(type: Delete) {
+		delete 'build'
+		delete 'bin'
+		//delete 'C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__\\UserCommon.jar'
+		println 'Deleted build/,bin/,UserCommon.jar'
+	}
+	clean.dependsOn(cleanExtra)
+
+	task cleanBuild(type: Delete) {
+		println "Inside clean build in UserCommon"
+	}
+	build.dependsOn(cleanBuild)
+
+	repositories {
+		flatDir {
+			dirs 'lib'
+		}
+	}
+
+	tasks.withType(Jar) {
+		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
+	}
 }	
+
 project (':TaashkingCommon') {
 	println "Inside TaashKingCommon"
+	configurations {
+		provided
+	}
+
+	sourceSets.main.compileClasspath += [configurations.provided]
+	dependencies {
+		//compile fileTree(dir: 'lib', include: ['*.jar'])
+		compile fileTree('../../resources')
+		testCompile project(':UserCommon')
+		provided project(':UserCommon')
+	}
+
+	eclipse {
+		classpath {
+			plusConfigurations+=[configurations.provided]
+		}
+	}
+		
+	jar {
+		archiveName = "TaashKingCommon.jar"
+		version = null
+		println "Inside jar in TaashkingCommon"
+		from('/') {
+			println 'Inside / in TaashkingCommon'
+			include '.classpath'
+			include '.project'
+			include 'build.gradle'
+			include 'settings.gradle'
+			include '.myhibernatedata'
+			//include '.gitignore'
+			include 'hibernate.reveng.xml'
+			//include '**/*.xml'
+		}
+		from('src') {
+			//include 'hibernate2.cfg.xml'
+			//include 'log4j.properties'
+			//include 'user/hibernate/db/hbm/*.xml'
+			exclude '**/*.java'
+		}
+		from('bin') {
+			exclude '**/*.xml'
+			exclude '**/*.properties'
+		}
+		exclude 'com/**'
+		exclude 'user/**'
+		exclude 'build/**'
+	}
+
+	sourceSets {
+		main {
+			java {
+				srcDir 'src'
+			}
+			resources {
+				exclude '**/hibernate.cfg.xml'
+			}
+			output.classesDir = "bin"
+			println "Inside sourcesets in TaashkingCommon"
+			
+			test.java {
+				srcDir 'src/test'
+			}
+		}	
+	}
+
+	compileTestJava {
+		println 'Inside compileTestJava in TaashkingCommon'
+	}
+
+	repositories {
+		flatDir {
+			dirs 'lib'
+		}
+	}
+
+	task cleanExtra(type: Delete) {
+		delete 'build'
+		delete 'bin'
+		//delete 'C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__\\TaashKingCommon.jar'
+		println 'Deleted build/,bin/,TaashKingCommon.jar'
+	}
+	clean.dependsOn(cleanExtra)
+
+	task cleanBuild(type: Delete) {
+		//delete 'build/'
+	}
+	cleanBuild.dependsOn(cleanExtra)
+	build.dependsOn(cleanBuild)
+
+	tasks.withType(Jar) {
+		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
+	}
+}
+
+project (':Taashking') {
+	println "Inside Taashking"
+	configurations {
+		provided
+	}
+
+	sourceSets.main.compileClasspath += [configurations.provided]
+	dependencies {
+		//compile fileTree(dir: 'lib', include: ['*.jar'])
+		compile fileTree('../../resources')
+		provided project(':UserCommon')
+		provided project(':TaashkingCommon')
+		testCompile project(':UserCommon')
+		testCompile project(':TaashkingCommon')
+	}
+
+	eclipse {
+		classpath {
+			plusConfigurations+=[configurations.provided]
+		}
+	}
+		
+	jar {
+		archiveName = "Taashking.jar"
+		version = null
+		println "Inside jar in Taashking"
+		from('/') {
+			println 'Inside / in Taashking'
+			include '.classpath'
+			include '.project'
+			include '.reverse.properties'
+			include 'abusivewords.csv.txt'
+			include 'build.gradle'
+			include 'log4j.properties'
+			include 'pmon'
+			include 'PokerKing.zone.xml'
+			include 'readme.txt'
+			include 'restrictwords.csv.txt'
+			include 'RummyKing.zone.xml'
+			include 'settings.gradle'
+			include 'taashking.properties'
+			include 'uml_taashking.uml'
+			include 'uml_taashking.umldi'
+		}
+		exclude 'com/**'
+		exclude 'user/**'
+	}
+
+	sourceSets {
+		main {
+			java {
+				srcDir 'src'
+			}
+			output.classesDir = "bin"
+			println "Inside sourcesets in Taashking"
+			
+			test.java {
+				srcDir 'src/poker/junit'
+			}
+		}	
+	}
+
+	repositories {
+		flatDir {
+			dirs 'lib'
+		}
+	}
+
+	task cleanExtra(type: Delete) {
+		delete 'build'
+		delete 'bin'
+		//delete 'C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension\\Taashking.jar'
+		println 'Deleted build/,bin/,Taashking.jar'
+	}
+	clean.dependsOn(cleanExtra)
+
+	task cleanBuild(type: Delete) {
+		
+	}
+	build.dependsOn(cleanBuild)
+
+	tasks.withType(Jar) {
+		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension')
+	}
 }
