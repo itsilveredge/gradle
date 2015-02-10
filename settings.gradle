@@ -1,4 +1,4 @@
 include ':TaashkingCommon', ':UserCommon',':Taashking'
-project(':UserCommon').projectDir = new File('taaskingclient.userDB\\UserCommon')
-project(':TaashkingCommon').projectDir = new File('taaskingclient.server\\TaashkingCommon')
-project(':Taashking').projectDir = new File('taaskingclient.server\\taashking')
+project(':UserCommon').projectDir = new File('./taaskingclient.userDB/UserCommon')
+project(':TaashkingCommon').projectDir = new File('./taaskingclient.server/TaashkingCommon')
+project(':Taashking').projectDir = new File('./taaskingclient.server/taashking')

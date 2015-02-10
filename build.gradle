@@ -19,16 +19,16 @@ project(':UserCommon') {
 	sourceSets {
 		main {
 			java {
-				srcDir 'src'
+				srcDir './src'
 			}
 			
-			output.classesDir = "bin"
+			output.classesDir = "./bin"
 			test.java {
-				srcDir 'src/test/login'
+				srcDir './src/test/login'
 			}
 			resources {
-				srcDir 'src'
-				//exclude '**/hibernate2.cfg.xml'
+				srcDir './src'
+				//exclude './**/hibernate2.cfg.xml'
 			}
 			println "Inside sourcesets in UserCommon"
 		}	
@@ -39,11 +39,11 @@ project(':UserCommon') {
 		version = null
 		println "Inside jar in UserCommon"
 		
-		from('src') {
-			exclude '**/*.java'
+		from('./src') {
+			exclude './**/*.java'
 		}
 		
-		from('/') {
+		from('./') {
 			println 'Inside / in UserCommon'
 			include '.classpath'
 			include 'settings.gradle'
@@ -55,8 +55,8 @@ project(':UserCommon') {
 	}
 
 	task cleanExtra(type: Delete) {
-		delete 'build'
-		delete 'bin'
+		delete './build'
+		delete './bin'
 		println 'Deleted build/,bin/,UserCommon.jar'
 	}
 	clean.dependsOn(cleanExtra)
@@ -68,7 +68,7 @@ project(':UserCommon') {
 
 	repositories {
 		flatDir {
-			dirs 'lib'
+			dirs './lib'
 		}
 	}
 
@@ -102,7 +102,7 @@ project (':TaashkingCommon') {
 		archiveName = "TaashKingCommon.jar"
 		version = null
 		println "Inside jar in TaashkingCommon"
-		from('/') {
+		from('./') {
 			println 'Inside / in TaashkingCommon'
 			include '.classpath'
 			include '.project'
@@ -111,31 +111,31 @@ project (':TaashkingCommon') {
 			include '.myhibernatedata'
 			include 'hibernate.reveng.xml'
 		}
-		from('src') {
-			exclude '**/*.java'
+		from('./src') {
+			exclude './**/*.java'
 		}
-		from('bin') {
-			exclude '**/*.xml'
-			exclude '**/*.properties'
+		from('./bin') {
+			exclude './**/*.xml'
+			exclude './**/*.properties'
 		}
-		exclude 'com/**'
-		exclude 'user/**'
-		exclude 'build/**'
+		exclude './com/**'
+		exclude './user/**'
+		exclude './build/**'
 	}
 
 	sourceSets {
 		main {
 			java {
-				srcDir 'src'
+				srcDir './src'
 			}
 			resources {
-				exclude '**/hibernate.cfg.xml'
+				exclude './**/hibernate.cfg.xml'
 			}
-			output.classesDir = "bin"
+			output.classesDir = "./bin"
 			println "Inside sourcesets in TaashkingCommon"
 			
 			test.java {
-				srcDir 'src/test'
+				srcDir './src/test'
 			}
 		}	
 	}
@@ -146,13 +146,13 @@ project (':TaashkingCommon') {
 
 	repositories {
 		flatDir {
-			dirs 'lib'
+			dirs './lib'
 		}
 	}
 
 	task cleanExtra(type: Delete) {
-		delete 'build'
-		delete 'bin'
+		delete './build'
+		delete './bin'
 		println 'Deleted build/,bin/,TaashKingCommon.jar'
 	}
 	clean.dependsOn(cleanExtra)
@@ -193,7 +193,7 @@ project (':Taashking') {
 		archiveName = "Taashking.jar"
 		version = null
 		println "Inside jar in Taashking"
-		from('/') {
+		from('./') {
 			println 'Inside / in Taashking'
 			include '.classpath'
 			include '.project'
@@ -211,33 +211,33 @@ project (':Taashking') {
 			include 'uml_taashking.uml'
 			include 'uml_taashking.umldi'
 		}
-		exclude 'com/**'
-		exclude 'user/**'
+		exclude './com/**'
+		exclude './user/**'
 	}
 
 	sourceSets {
 		main {
 			java {
-				srcDir 'src'
+				srcDir './src'
 			}
-			output.classesDir = "bin"
+			output.classesDir = "./bin"
 			println "Inside sourcesets in Taashking"
 			
 			test.java {
-				srcDir 'src/poker/junit'
+				srcDir './src/poker/junit'
 			}
 		}	
 	}
 
 	repositories {
 		flatDir {
-			dirs 'lib'
+			dirs './lib'
 		}
 	}
 
 	task cleanExtra(type: Delete) {
-		delete 'build'
-		delete 'bin'
+		delete './build'
+		delete './bin'
 		println 'Deleted build/,bin/,Taashking.jar'
 	}
 	clean.dependsOn(cleanExtra)
