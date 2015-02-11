@@ -40,7 +40,7 @@ project(':UserCommon') {
 		println "Inside jar in UserCommon"
 		
 		from('./src') {
-			exclude './**/*.java'
+			exclude '**/*.java'
 		}
 		
 		from('./') {
@@ -112,11 +112,11 @@ project (':TaashkingCommon') {
 			include 'hibernate.reveng.xml'
 		}
 		from('./src') {
-			exclude './**/*.java'
+			exclude '**/*.java'
 		}
 		from('./bin') {
-			exclude './**/*.xml'
-			exclude './**/*.properties'
+			exclude '**/*.xml'
+			exclude '**/*.properties'
 		}
 		exclude './com/**'
 		exclude './user/**'
@@ -213,6 +213,7 @@ project (':Taashking') {
 		}
 		exclude './com/**'
 		exclude './user/**'
+		exclude '**/**/*.java'
 	}
 
 	sourceSets {
