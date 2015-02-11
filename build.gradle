@@ -28,7 +28,7 @@ project(':UserCommon') {
 			}
 			resources {
 				srcDir './src'
-				//exclude './**/hibernate2.cfg.xml'
+				//exclude '**/**/hibernate2.cfg.xml'
 			}
 			println "Inside sourcesets in UserCommon"
 		}	
@@ -41,6 +41,8 @@ project(':UserCommon') {
 		
 		from('./src') {
 			exclude '**/*.java'
+			exclude '**/hibernate2.cfg.xml'
+			exclude '**/log4j.properties'
 		}
 		
 		from('./') {
