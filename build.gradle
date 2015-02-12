@@ -116,10 +116,7 @@ project (':TaashkingCommon') {
 		from('./src') {
 			exclude '**/*.java'
 		}
-		from('./bin') {
-			exclude '**/*.xml'
-			exclude '**/*.properties'
-		}
+		
 		exclude './com/**'
 		exclude './user/**'
 		exclude './build/**'
