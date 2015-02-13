@@ -5,13 +5,11 @@ allprojects {
 }
 
 subprojects {
-	//println 'Sub projects'
 }
 
 project(':UserCommon') {
 	println "Inside UserCommon"
 	dependencies {
-		//compile fileTree(dir: 'lib', include: ['*.jar'])
 		compile fileTree('../../resources')
 		testCompile fileTree('../../resources')
 	}
@@ -22,13 +20,11 @@ project(':UserCommon') {
 				srcDir './src'
 			}
 			
-			output.classesDir = "./bin"
 			test.java {
 				srcDir './src/test/login'
 			}
 			resources {
 				srcDir './src'
-				//exclude '**/**/hibernate2.cfg.xml'
 			}
 			println "Inside sourcesets in UserCommon"
 		}	
@@ -38,12 +34,6 @@ project(':UserCommon') {
 		archiveName = "UserCommon.jar"
 		version = null
 		println "Inside jar in UserCommon"
-		
-		from('./src') {
-			exclude '**/*.java'
-			exclude '**/hibernate2.cfg.xml'
-			exclude '**/log4j.properties'
-		}
 		
 		from('./') {
 			println 'Inside / in UserCommon'
@@ -72,10 +62,6 @@ project(':UserCommon') {
 		flatDir {
 			dirs './lib'
 		}
-	}
-
-	tasks.withType(Jar) {
-		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
 	}
 }	
 
@@ -113,13 +99,6 @@ project (':TaashkingCommon') {
 			include '.myhibernatedata'
 			include 'hibernate.reveng.xml'
 		}
-		from('./src') {
-			exclude '**/*.java'
-		}
-		
-		exclude './com/**'
-		exclude './user/**'
-		exclude './build/**'
 	}
 
 	sourceSets {
@@ -128,9 +107,8 @@ project (':TaashkingCommon') {
 				srcDir './src'
 			}
 			resources {
-				exclude './**/hibernate.cfg.xml'
+				srcDir './src'
 			}
-			output.classesDir = "./bin"
 			println "Inside sourcesets in TaashkingCommon"
 			
 			test.java {
@@ -160,10 +138,6 @@ project (':TaashkingCommon') {
 	}
 	cleanBuild.dependsOn(cleanExtra)
 	build.dependsOn(cleanBuild)
-
-	tasks.withType(Jar) {
-		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
-	}
 }
 
 project (':Taashking') {
@@ -210,9 +184,6 @@ project (':Taashking') {
 			include 'uml_taashking.uml'
 			include 'uml_taashking.umldi'
 		}
-		exclude './com/**'
-		exclude './user/**'
-		exclude '**/**/*.java'
 	}
 
 	sourceSets {
@@ -220,7 +191,9 @@ project (':Taashking') {
 			java {
 				srcDir './src'
 			}
-			output.classesDir = "./bin"
+			resources {
+				srcDir './src'
+			}
 			println "Inside sourcesets in Taashking"
 			
 			test.java {
@@ -246,8 +219,4 @@ project (':Taashking') {
 		
 	}
 	build.dependsOn(cleanBuild)
-
-	tasks.withType(Jar) {
-		//destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension')
-	}
 }
