@@ -63,6 +63,10 @@ project(':UserCommon') {
 			dirs './lib'
 		}
 	}
+	
+	tasks.withType(Jar) {
+        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
+    }
 }	
 
 project (':TaashkingCommon') {
@@ -138,6 +142,10 @@ project (':TaashkingCommon') {
 	}
 	cleanBuild.dependsOn(cleanExtra)
 	build.dependsOn(cleanBuild)
+	
+	tasks.withType(Jar) {
+        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
+    }
 }
 
 project (':Taashking') {
@@ -219,4 +227,8 @@ project (':Taashking') {
 		
 	}
 	build.dependsOn(cleanBuild)
+	
+	tasks.withType(Jar) {
+        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension')
+    }
 }
