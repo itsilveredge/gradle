@@ -28,8 +28,8 @@ project (':TaashkingCommon') {
 	println 'Inside TaashkingCommon'
 	dependencies {
 		merged fileTree('./libs')
-		merged files('../swc/SFS2X_API_AS3.swc')
-		merged fileTree('../swc/flexunit')
+		merged files('../../swc/SFS2X_API_AS3.swc')
+		merged fileTree('../../swc/flexunit')
 	}
 	srcDirs =['./src']
 	resourceDirs = ['./src/assets/']
@@ -57,7 +57,7 @@ project (':Lobby') {
 		merged project(':TaashkingCommon')
 		merged fileTree('./libs')
 		merged fileTree('./../TaashkingCommon/libs')
-		merged files('./../swc/SFS2X_API_AS3.swc')
+		merged files('./../../swc/SFS2X_API_AS3.swc')
 	}
 	println 'Inside Lobby'
 	srcDirs =['./src']
@@ -93,19 +93,19 @@ project (':LitePokerClient') {
 		
 		internal fileTree('./libs')
 		internal files('./src/assets/mtt-Btn.swc')
-		merged files('./../swc/SFS2X_API_AS3.swc')
-		merged files('./../swc/automation.swc')
-		merged files('./../swc/automation_agent.swc')
-		merged files('./../swc/automation_dmv.swc')
-		merged files('./../swc/automation_flashflexkit.swc')
-		merged files('./../swc/datavisualization.swc')
-		merged files('./../swc/flex.swc')
-		merged files('./../swc/framework.swc')
-		merged files('./../swc/qtp.swc')
-		merged files('./../swc/rpc.swc')
-		merged files('./../swc/utilities.swc')
+		merged files('./../../swc/SFS2X_API_AS3.swc')
+		merged files('./../../swc/automation.swc')
+		merged files('./../../swc/automation_agent.swc')
+		merged files('./../../swc/automation_dmv.swc')
+		merged files('./../../swc/automation_flashflexkit.swc')
+		merged files('./../../swc/datavisualization.swc')
+		merged files('./../../swc/flex.swc')
+		merged files('./../../swc/framework.swc')
+		merged files('./../../swc/qtp.swc')
+		merged files('./../../swc/rpc.swc')
+		merged files('./../../swc/utilities.swc')
 
-		external files('./../swc/playerglobal.swc')
+		external files('./../../swc/playerglobal.swc')
 	}
 	println 'Inside LitePokerClient'
 	srcDirs =['./src']
