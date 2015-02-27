@@ -6,5 +6,5 @@
 	url = https://pratts:prateek*SHM1@git.assembla.com/taaskingclient.server.git
 [submodule "taaskingclient"]
 	path = taaskingclient
-	url = https://git.assembla.com/taaskingclient.git
+	url = https://pratts:prateek*SHM1@git.assembla.com/taaskingclient.git
 	

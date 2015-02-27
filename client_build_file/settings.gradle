@@ -1,4 +1,4 @@
-include 'LitePokerClient','Lobby','TaashkingCommon'
+include 'LitePokerClient','Lobby','TKCommon'
 project(':LitePokerClient').projectDir = new File('./../taaskingclient/LitePokerClient')
 project(':Lobby').projectDir = new File('./../taaskingclient/Lobby')
-project(':TaashkingCommon').projectDir = new File('./../taaskingclient/TaashkingCommon')
+project(':TKCommon').projectDir = new File('./../taaskingclient/TaashkingCommon')

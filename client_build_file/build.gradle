@@ -7,7 +7,7 @@ buildscript {
 	}
 }
 
-project (':TaashkingCommon') {
+project (':TKCommon') {
 	apply plugin: 'gradlefx'
 	apply plugin: 'flashbuilder'
 	
@@ -25,7 +25,7 @@ project (':TaashkingCommon') {
 	type= 'swc'
 	frameworkLinkage = 'none'
 	playerVersion = '10.0'
-	println 'Inside TaashkingCommon'
+	println 'Inside TKCommon'
 	dependencies {
 		merged fileTree('./libs')
 		merged files('../../swc/SFS2X_API_AS3.swc')
@@ -54,9 +54,9 @@ project (':Lobby') {
 	frameworkLinkage = 'none'
 	playerVersion = '10.0'
 	dependencies {
-		merged project(':TaashkingCommon')
+		merged project(':TKCommon')
 		merged fileTree('./libs')
-		merged fileTree('./../TaashkingCommon/libs')
+		merged fileTree('./../TKCommon/libs')
 		merged files('./../../swc/SFS2X_API_AS3.swc')
 	}
 	println 'Inside Lobby'
@@ -85,11 +85,11 @@ project (':LitePokerClient') {
 	dependencies {
 		internal project(':Lobby')
 		merged fileTree('./../Lobby/libs')
-		internal project(':TaashkingCommon')
-		merged fileTree('./../TaashkingCommon/libs')
+		internal project(':TKCommon')
+		merged fileTree('./../TKCommon/libs')
 		
 		merged files('./../Lobby/build/Lobby.swc')
-		merged files('./../TaashkingCommon/build/TaashkingCommon.swc')
+		merged files('./../TKCommon/build/TKCommon.swc')
 		
 		internal fileTree('./libs')
 		internal files('./src/assets/mtt-Btn.swc')
@@ -131,8 +131,8 @@ task hello(type:Copy) {
 		include 'LitePokerClient.swf'
 	}
 	
-	//include files from TaashkingCommon project
-	from ('./../taaskingclient/TaashkingCommon/src') {
+	//include files from TKCommon project
+	from ('./../taaskingclient/TKCommon/src') {
 		include 'assets/**/*.*'
 	}
 	
