@@ -1,0 +1,4 @@
+include 'LitePokerClient','Lobby','TaashkingCommon'
+project(':LitePokerClient').projectDir = new File('./../taaskingclient/LitePokerClient')
+project(':Lobby').projectDir = new File('./../taaskingclient/Lobby')
+project(':TaashkingCommon').projectDir = new File('./../taaskingclient/TaashkingCommon')

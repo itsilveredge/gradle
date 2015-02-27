@@ -1,0 +1,160 @@
+buildscript {
+	repositories {
+		mavenCentral()	
+	}	
+	dependencies {
+			classpath group: 'org.gradlefx', name: 'gradlefx', version: '1.1'
+	}
+}
+
+project (':TaashkingCommon') {
+	apply plugin: 'gradlefx'
+	apply plugin: 'flashbuilder'
+	
+	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	
+	additionalCompilerOptions = [
+		"-debug=false",
+		"-show-actionscript-warnings=true",
+		"-target-player=10",
+		"-warnings=false",
+		"-load-config=flex-config.xml",
+		"-load-config=air-config.xml"	
+	]
+	
+	type= 'swc'
+	frameworkLinkage = 'none'
+	playerVersion = '10.0'
+	println 'Inside TaashkingCommon'
+	dependencies {
+		merged fileTree('./libs')
+		merged files('../swc/SFS2X_API_AS3.swc')
+		merged fileTree('../swc/flexunit')
+	}
+	srcDirs =['./src']
+	resourceDirs = ['./src/assets/']
+}
+
+project (':Lobby') {
+	apply plugin: 'gradlefx'
+	apply plugin: 'flashbuilder'
+	
+	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	
+	additionalCompilerOptions = [
+		"-debug=false",
+		"-show-actionscript-warnings=true",
+		"-target-player=10",
+		"-warnings=false",
+		"-load-config=flex-config.xml",
+		"-load-config=air-config.xml"	
+	]
+	
+	type= 'swc'
+	frameworkLinkage = 'none'
+	playerVersion = '10.0'
+	dependencies {
+		merged project(':TaashkingCommon')
+		merged fileTree('./libs')
+		merged fileTree('./../TaashkingCommon/libs')
+		merged files('./../swc/SFS2X_API_AS3.swc')
+	}
+	println 'Inside Lobby'
+	srcDirs =['./src']
+	resourceDirs = ['src/assets','src/daily_winner_scripts/','src/ui/']
+}
+
+project (':LitePokerClient') {
+	apply plugin: 'gradlefx'
+	apply plugin: 'flashbuilder'
+	
+	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	
+	additionalCompilerOptions = [
+		"-debug=false",
+		"-show-actionscript-warnings=true",
+		"-target-player=10",
+		"-warnings=false",
+		"-load-config=flex-config.xml",
+		"-load-config=air-config.xml"	
+	]
+	
+	type= 'swf'
+	frameworkLinkage = 'none'
+	playerVersion = '10.0'
+	dependencies {
+		internal project(':Lobby')
+		merged fileTree('./../Lobby/libs')
+		internal project(':TaashkingCommon')
+		merged fileTree('./../TaashkingCommon/libs')
+		
+		merged files('./../Lobby/build/Lobby.swc')
+		merged files('./../TaashkingCommon/build/TaashkingCommon.swc')
+		
+		internal fileTree('./libs')
+		internal files('./src/assets/mtt-Btn.swc')
+		merged files('./../swc/SFS2X_API_AS3.swc')
+		merged files('./../swc/automation.swc')
+		merged files('./../swc/automation_agent.swc')
+		merged files('./../swc/automation_dmv.swc')
+		merged files('./../swc/automation_flashflexkit.swc')
+		merged files('./../swc/datavisualization.swc')
+		merged files('./../swc/flex.swc')
+		merged files('./../swc/framework.swc')
+		merged files('./../swc/qtp.swc')
+		merged files('./../swc/rpc.swc')
+		merged files('./../swc/utilities.swc')
+
+		external files('./../swc/playerglobal.swc')
+	}
+	println 'Inside LitePokerClient'
+	srcDirs =['./src']
+	mainClass='LitePokerClient.mxml'
+
+	resourceDirs = ['src/assets']
+}
+
+task hello(type:Copy) {
+	//include files from litepokerclient project
+	delete 'C:/xampp/htdocs/onlinepoker'
+	from ('./LitePokerClient/src/') {
+		include 'assets/**/*.*'
+		include 'config/**/*.*'
+		include 'avatar/**/*.*'
+		include '*.php'
+		include '*.html'
+	}
+	from ('./../taaskingclient/LitePokerClient/html-template/') {
+		include 'history/**/*.*'
+	}
+	from ('./../taaskingclient/LitePokerClient/build/') {
+		include 'LitePokerClient.swf'
+	}
+	
+	//include files from TaashkingCommon project
+	from ('./../taaskingclient/TaashkingCommon/src') {
+		include 'assets/**/*.*'
+	}
+	
+	//include files from lobby project
+	from ('./../taaskingclient/Lobby/src') {
+		include 'assets/**/*.*'
+	}
+	
+	//include files from poker preloader
+	from ('D:/tools/adobe-flex-sdk_3.6.0/frameworks/javascript/fabridge/samples/srcview') {
+		include '*.js'
+		include 'playerProductInstall.swf'
+	}
+	
+	from ('D:/bin-debug') {
+		include 'LitePokerClient.html'
+	}
+	
+	from ('C:/SmartFoxServer_2X/SFS2X/config') {
+		include 'crossdomain.xml'
+	}
+	
+	into('C:/xampp/htdocs/onlinepoker/')
+	println 'hello world!'
+}
