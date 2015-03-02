@@ -40,7 +40,8 @@ project (':Lobby') {
 	apply plugin: 'gradlefx'
 	apply plugin: 'flashbuilder'
 	
-	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	
 	additionalCompilerOptions = [
 		"-debug=false",
@@ -69,7 +70,8 @@ project (':LitePokerClient') {
 	apply plugin: 'gradlefx'
 	apply plugin: 'flashbuilder'
 	
-	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	
 	additionalCompilerOptions = [
 		"-debug=false",
