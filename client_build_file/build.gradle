@@ -11,8 +11,8 @@ project (':TKCommon') {
 	apply plugin: 'gradlefx'
 	apply plugin: 'flashbuilder'
 	
-	flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
-	//flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
+	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	
 	additionalCompilerOptions = [
 		"-debug=false",
@@ -113,49 +113,4 @@ project (':LitePokerClient') {
 	mainClass='LitePokerClient.mxml'
 
 	//resourceDirs = ['src/assets']
-}
-
-task hello(type:Copy) {
-	//include files from litepokerclient project
-	delete 'C:/xampp/htdocs/onlinepoker'
-	from ('./LitePokerClient/src/') {
-		include 'assets/**/*.*'
-		include 'config/**/*.*'
-		include 'avatar/**/*.*'
-		include '*.php'
-		include '*.html'
-	}
-	from ('./../taaskingclient/LitePokerClient/html-template/') {
-		include 'history/**/*.*'
-	}
-	from ('./../taaskingclient/LitePokerClient/build/') {
-		include 'LitePokerClient.swf'
-	}
-	
-	//include files from TKCommon project
-	from ('./../taaskingclient/TKCommon/src') {
-		include 'assets/**/*.*'
-	}
-	
-	//include files from lobby project
-	from ('./../taaskingclient/Lobby/src') {
-		include 'assets/**/*.*'
-	}
-	
-	//include files from poker preloader
-	from ('D:/tools/adobe-flex-sdk_3.6.0/frameworks/javascript/fabridge/samples/srcview') {
-		include '*.js'
-		include 'playerProductInstall.swf'
-	}
-	
-	from ('D:/bin-debug') {
-		include 'LitePokerClient.html'
-	}
-	
-	from ('C:/SmartFoxServer_2X/SFS2X/config') {
-		include 'crossdomain.xml'
-	}
-	
-	into('C:/xampp/htdocs/onlinepoker/')
-	println 'hello world!'
 }
