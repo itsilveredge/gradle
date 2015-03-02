@@ -32,7 +32,7 @@ project (':TKCommon') {
 		merged fileTree('../../swc/flexunit')
 	}
 	srcDirs =['./src']
-	resourceDirs = ['./src/assets/']
+	//resourceDirs = ['./src/assets/']
 }
 
 project (':Lobby') {
@@ -61,7 +61,7 @@ project (':Lobby') {
 	}
 	println 'Inside Lobby'
 	srcDirs =['./src']
-	resourceDirs = ['src/assets','src/daily_winner_scripts/','src/ui/']
+	//resourceDirs = ['src/assets','src/daily_winner_scripts/','src/ui/']
 }
 
 project (':LitePokerClient') {
@@ -86,10 +86,10 @@ project (':LitePokerClient') {
 		internal project(':Lobby')
 		merged fileTree('./../Lobby/libs')
 		internal project(':TKCommon')
-		merged fileTree('./../TKCommon/libs')
+		merged fileTree('./../TaashkingCommon/libs')
 		
 		merged files('./../Lobby/build/Lobby.swc')
-		merged files('./../TKCommon/build/TKCommon.swc')
+		merged files('./../TaashkingCommon/build/TKCommon.swc')
 		
 		internal fileTree('./libs')
 		internal files('./src/assets/mtt-Btn.swc')
@@ -111,7 +111,7 @@ project (':LitePokerClient') {
 	srcDirs =['./src']
 	mainClass='LitePokerClient.mxml'
 
-	resourceDirs = ['src/assets']
+	//resourceDirs = ['src/assets']
 }
 
 task hello(type:Copy) {
