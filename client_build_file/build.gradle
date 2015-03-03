@@ -113,6 +113,6 @@ project (':LitePokerClient') {
 	println 'Inside LitePokerClient'
 	srcDirs =['./src']
 	mainClass='LitePokerClient.mxml'
-
+	output='client'
 	//resourceDirs = ['src/assets']
 }
