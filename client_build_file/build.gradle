@@ -28,7 +28,7 @@ project (':TKCommon') {
 	playerVersion = '10.0'
 	println 'Inside TKCommon'
 	dependencies {
-		merged fileTree('./libs')
+		internal fileTree('./libs')
 		merged files('../../swc/SFS2X_API_AS3.swc')
 		merged fileTree('../../swc/flexunit')
 	}
@@ -56,9 +56,9 @@ project (':Lobby') {
 	frameworkLinkage = 'none'
 	playerVersion = '10.0'
 	dependencies {
-		merged project(':TKCommon')
-		merged fileTree('./libs')
-		merged fileTree('./../TKCommon/libs')
+		internal project(':TKCommon')
+		internal fileTree('./libs')
+		internal fileTree('./../TKCommon/libs')
 		merged files('./../../swc/SFS2X_API_AS3.swc')
 	}
 	println 'Inside Lobby'
@@ -87,15 +87,15 @@ project (':LitePokerClient') {
 	playerVersion = '10.0'
 	dependencies {
 		internal project(':Lobby')
-		merged fileTree('./../Lobby/libs')
+		internal fileTree('./../Lobby/libs')
 		internal project(':TKCommon')
-		merged fileTree('./../TaashkingCommon/libs')
+		internal fileTree('./../TaashkingCommon/libs')
 		
-		merged files('./../Lobby/build/Lobby.swc')
-		merged files('./../TaashkingCommon/build/TKCommon.swc')
+		internal files('./../Lobby/build/Lobby.swc')
+		internal files('./../TaashkingCommon/build/TKCommon.swc')
 		
 		internal fileTree('./libs')
-		internal files('./src/assets/mtt-Btn.swc')
+		merged files('./src/assets/mtt-Btn.swc')
 		merged files('./../../swc/SFS2X_API_AS3.swc')
 		merged files('./../../swc/automation.swc')
 		merged files('./../../swc/automation_agent.swc')
