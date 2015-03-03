@@ -33,7 +33,6 @@ project (':TKCommon') {
 		merged fileTree('../../swc/flexunit')
 	}
 	srcDirs =['./src']
-	//resourceDirs = ['./src/assets/']
 }
 
 project (':Lobby') {
@@ -63,7 +62,6 @@ project (':Lobby') {
 	}
 	println 'Inside Lobby'
 	srcDirs =['./src']
-	//resourceDirs = ['src/assets','src/daily_winner_scripts/','src/ui/']
 }
 
 project (':LitePokerClient') {
@@ -114,5 +112,4 @@ project (':LitePokerClient') {
 	srcDirs =['./src']
 	mainClass='LitePokerClient.mxml'
 	output='client'
-	//resourceDirs = ['src/assets']
 }
