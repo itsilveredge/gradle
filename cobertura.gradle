@@ -6,8 +6,7 @@ configurations{
 
 dependencies {
   coberturaRuntime 'net.sourceforge.cobertura:cobertura:2.1.1'
-  //compile fileTree('C:\\Users\\Get\\Downloads\\cobertura-2.1.1-bin\\cobertura-2.1.1\\lib')
-  //compile fileTree('../../resources')
+  compile fileTree('../../cobertura-lib')
 }
 
 def serFile="${project.buildDir}/cobertura.ser"
