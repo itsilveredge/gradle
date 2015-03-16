@@ -1,10 +1,24 @@
 allprojects {
 	println 'All projects'
-	apply plugin: 'java'
-	apply plugin: 'eclipse'
+	repositories {
+		mavenCentral()
+	}
 }
 
 subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply from: "${parent.projectDir.canonicalPath}/cobertura.gradle"
+	sourceCompatibility = '1.7'
+	targetCompatibility = '1.7'
+	configurations.all {
+		resolutionStrategy {
+			// Cobertura includes an ASM version that can't handle Java 8, ASM 5.0.3 handles Java8
+			force 'org.ow2.asm:asm:5.0.3'
+			forcedModules = [ 'org.ow2.asm:asm:5.0.3' ]
+		}
+	}
+	// JAVA_OPTS='-XX:-UseSplitVerifier'
 }
 
 project(':UserCommon') {
