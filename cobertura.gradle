@@ -42,10 +42,10 @@ cobertura.doLast{
   if (new File(classesCopy).exists()) {
     //create html cobertura report
     ant.'cobertura-report'(destdir:"${project.reportsDir}/cobertura",
-            format:'html', srcdir:"src/main/java", datafile: serFile)
+            format:'html', srcdir:"src/", datafile: serFile)
     //create xml cobertura report
      ant.'cobertura-report'(destdir:"${project.reportsDir}/cobertura",
-            format:'xml', srcdir:"src/main/java", datafile: serFile)
+            format:'xml', srcdir:"src/", datafile: serFile)
     ant.delete(file: classes)
     ant.move(file: classesCopy, tofile: classes)
   }
