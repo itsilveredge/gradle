@@ -3,12 +3,30 @@ allprojects {
 	repositories {
 		mavenCentral()
 	}
-}
-
-subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
-	apply from: "${parent.projectDir.canonicalPath}/cobertura.gradle"
+	apply plugin: 'cobertura'
+}
+
+//apply from: "cobertura.gradle"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.2"
+    }
+}
+
+def files = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
+cobertura {
+    coverageFormats = [ 'xml', 'html' ]
+    coverageMergeDatafiles = files
+}
+test.dependsOn(subprojects.test)
+
+subprojects {
 	sourceCompatibility = '1.7'
 	targetCompatibility = '1.7'
 	configurations.all {
@@ -18,7 +36,9 @@ subprojects {
 			forcedModules = [ 'org.ow2.asm:asm:5.0.3' ]
 		}
 	}
-	// JAVA_OPTS='-XX:-UseSplitVerifier'
+	cobertura {
+        coverageIgnoreTrivial = true
+    }
 }
 
 project(':UserCommon') {
