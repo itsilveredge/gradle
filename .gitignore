@@ -3,3 +3,5 @@
 /build/
 .settings/*
 /build/
+build/tmp/jar/MANIFEST.MF
+build/libs/Gradle-Test-Taashking.jar
