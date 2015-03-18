@@ -33,9 +33,9 @@ project (':TKCommon') {
 		merged files('./libs/preloader-ringside.swc')
 		merged files('./libs/preloader-rummy.swc')
 		
-		merged files('../../swc/SFS2X_API_AS3.swc')
-		merged files('../../swc/flexunit/flexunit_0.9.swc')
-		merged files('../../swc/flexunit/hamcrest-1.0.2.swc')
+		merged files('./../../swc/SFS2X_API_AS3.swc')
+		merged files('./../../swc/flexunit/flexunit_0.9.swc')
+		merged files('./../../swc/flexunit/hamcrest-1.0.2.swc')
 		
 		external files('./../../swc/playerglobal.swc')
 		internal files('./../../swc/framework.swc')
@@ -131,7 +131,7 @@ project (':LitePokerClient') {
 	]
 	
 	type= 'swf'
-	frameworkLinkage = 'merged'
+	frameworkLinkage = 'none'
 	playerVersion = '10.2.0'
 	
 	dependencies {
