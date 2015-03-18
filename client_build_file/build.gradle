@@ -13,14 +13,13 @@ project (':TKCommon') {
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
-	
 	additionalCompilerOptions = [
 		"-debug=false",
 		"-show-actionscript-warnings=true",
 		"-target-player=10.0.0",
 		"-warnings=false",
 		"-load-config=flex-config.xml",
-		"-load-config=air-config.xml"	
+		"-load-config=air-config.xml"
 	]
 	
 	type= 'swc'
@@ -28,9 +27,33 @@ project (':TKCommon') {
 	playerVersion = '10.0.0'
 	println 'Inside TKCommon'
 	dependencies {
-		internal fileTree('./libs')
+		merged files('./libs/preloader.swc')
+		merged files('./libs/preloader_adda52rummy.swc')
+		merged files('./libs/preloader_kastros.swc')
+		merged files('./libs/preloader-ringside.swc')
+		merged files('./libs/preloader-rummy.swc')
+		
 		merged files('../../swc/SFS2X_API_AS3.swc')
-		merged fileTree('../../swc/flexunit')
+		merged files('../../swc/flexunit/flexunit_0.9.swc')
+		merged files('../../swc/flexunit/hamcrest-1.0.2.swc')
+		
+		external files('./../../swc/playerglobal.swc')
+		internal files('./../../swc/framework.swc')
+		internal files('./../../swc/automation.swc')
+		merged files('./../../swc/automation_agent.swc')
+		internal files('./../../swc/automation_dmv.swc')
+		internal files('./../../swc/automation_flashflexkit.swc')
+		internal files('./../../swc/datavisualization.swc')
+		internal files('./../../swc/qtp.swc')
+		internal files('./../../swc/rpc.swc')
+		internal files('./../../swc/utilities.swc')
+		
+		merged files('./../../swc/locale/airframework_rb.swc')
+		merged files('./../../swc/locale/automation_agent_rb.swc')
+		merged files('./../../swc/locale/automation_rb.swc')
+		merged files('./../../swc/locale/datavisualization_rb.swc')
+		merged files('./../../swc/locale/framework_rb.swc')
+		merged files('./../../swc/locale/rpc_rb.swc')
 	}
 	srcDirs =['./src']
 }
@@ -41,14 +64,13 @@ project (':Lobby') {
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
-	
 	additionalCompilerOptions = [
 		"-debug=false",
 		"-show-actionscript-warnings=true",
 		"-target-player=10.0.2",
 		"-warnings=false",
 		"-load-config=flex-config.xml",
-		"-load-config=air-config.xml"	
+		"-load-config=air-config.xml"
 	]
 	
 	type= 'swc'
@@ -56,9 +78,38 @@ project (':Lobby') {
 	playerVersion = '10.0.2'
 	dependencies {
 		internal project(':TKCommon')
-		internal fileTree('./libs')
-		internal fileTree('./../TKCommon/libs')
+		
+		merged files('./libs/actionjson.swc')
+		merged files('./libs/as3corelib.swc')
+		merged files('./libs/commongraphicassets.swc')
+		merged files('./libs/preloader.swc')
+		merged files('./libs/preloader_kastros.swc')
+		
+		merged files('./../TaashkingCommon/libs/preloader.swc')
+		merged files('./../TaashkingCommon/libs/preloader_adda52rummy.swc')
+		merged files('./../TaashkingCommon/libs/preloader_kastros.swc')
+		merged files('./../TaashkingCommon/libs/preloader-ringside.swc')
+		merged files('./../TaashkingCommon/libs/preloader-rummy.swc')
+		
 		merged files('./../../swc/SFS2X_API_AS3.swc')
+		
+		external files('./../../swc/playerglobal.swc')
+		internal files('./../../swc/framework.swc')
+		internal files('./../../swc/automation.swc')
+		merged files('./../../swc/automation_agent.swc')
+		internal files('./../../swc/automation_dmv.swc')
+		internal files('./../../swc/automation_flashflexkit.swc')
+		internal files('./../../swc/datavisualization.swc')
+		internal files('./../../swc/qtp.swc')
+		internal files('./../../swc/rpc.swc')
+		internal files('./../../swc/utilities.swc')
+		
+		merged files('./../../swc/locale/airframework_rb.swc')
+		merged files('./../../swc/locale/automation_agent_rb.swc')
+		merged files('./../../swc/locale/automation_rb.swc')
+		merged files('./../../swc/locale/datavisualization_rb.swc')
+		merged files('./../../swc/locale/framework_rb.swc')
+		merged files('./../../swc/locale/rpc_rb.swc')
 	}
 	println 'Inside Lobby'
 	srcDirs =['./src']
@@ -70,43 +121,39 @@ project (':LitePokerClient') {
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
-	
 	additionalCompilerOptions = [
 		"-debug=false",
 		"-show-actionscript-warnings=true",
 		"-target-player=10.2.0",
 		"-warnings=false",
 		"-load-config=flex-config.xml",
-		"-load-config=air-config.xml"	
+		"-load-config=air-config.xml"
 	]
 	
 	type= 'swf'
 	frameworkLinkage = 'none'
 	playerVersion = '10.2.0'
+	
 	dependencies {
 		internal project(':Lobby')
-		internal fileTree('./../Lobby/libs')
 		internal project(':TKCommon')
-		internal fileTree('./../TaashkingCommon/libs')
 		
-		internal files('./../Lobby/build/Lobby.swc')
-		internal files('./../TaashkingCommon/build/TKCommon.swc')
-		
-		internal fileTree('./libs')
+		merged files('./libs/pokeravtaars.swc')
+		merged files('./libs/pokerdesignassets.swc')
 		merged files('./src/assets/mtt-Btn.swc')
-		merged files('./../../swc/SFS2X_API_AS3.swc')
-		merged files('./../../swc/automation.swc')
-		merged files('./../../swc/automation_agent.swc')
-		merged files('./../../swc/automation_dmv.swc')
-		merged files('./../../swc/automation_flashflexkit.swc')
-		merged files('./../../swc/datavisualization.swc')
-		merged files('./../../swc/flex.swc')
-		merged files('./../../swc/framework.swc')
-		merged files('./../../swc/qtp.swc')
-		merged files('./../../swc/rpc.swc')
-		merged files('./../../swc/utilities.swc')
-
+		
 		external files('./../../swc/playerglobal.swc')
+		internal files('./../../swc/framework.swc')
+		internal files('./../../swc/automation.swc')
+		merged files('./../../swc/automation_agent.swc')
+		internal files('./../../swc/automation_dmv.swc')
+		internal files('./../../swc/automation_flashflexkit.swc')
+		internal files('./../../swc/datavisualization.swc')
+		internal files('./../../swc/qtp.swc')
+		internal files('./../../swc/rpc.swc')
+		internal files('./../../swc/utilities.swc')
+		
+		
 	}
 	println 'Inside LitePokerClient'
 	srcDirs =['./src']

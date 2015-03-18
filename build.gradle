@@ -8,8 +8,6 @@ allprojects {
 	apply plugin: 'cobertura'
 }
 
-//apply from: "cobertura.gradle"
-
 buildscript {
     repositories {
         mavenCentral()
@@ -28,14 +26,6 @@ test.dependsOn(subprojects.test)
 
 subprojects {
 	sourceCompatibility = '1.7'
-	targetCompatibility = '1.7'
-	configurations.all {
-		resolutionStrategy {
-			// Cobertura includes an ASM version that can't handle Java 8, ASM 5.0.3 handles Java8
-			force 'org.ow2.asm:asm:5.0.3'
-			forcedModules = [ 'org.ow2.asm:asm:5.0.3' ]
-		}
-	}
 	cobertura {
         coverageIgnoreTrivial = true
     }
