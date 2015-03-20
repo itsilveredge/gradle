@@ -27,7 +27,7 @@ test.dependsOn(subprojects.test)
 subprojects {
 	sourceCompatibility = '1.7'
 	cobertura {
-        coverageIgnoreTrivial = true
+        coverageIgnoreTrivial = false
     }
 }
 
