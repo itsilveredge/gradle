@@ -2,6 +2,7 @@ allprojects {
 	println 'All projects'
 	repositories {
 		mavenCentral()
+		mavenLocal()
 	}
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
@@ -11,6 +12,7 @@ allprojects {
 buildscript {
     repositories {
         mavenCentral()
+		mavenLocal()
     }
     dependencies {
         classpath "net.saliman:gradle-cobertura-plugin:2.2.2"
@@ -25,10 +27,28 @@ cobertura {
 test.dependsOn(subprojects.test)
 
 subprojects {
+	apply plugin: 'pmd'
+	
 	sourceCompatibility = '1.7'
 	cobertura {
         coverageIgnoreTrivial = false
     }
+	
+	pmdMain {
+		ignoreFailures = true
+		reports {
+			xml.enabled true
+			html.enabled true
+		}
+	}
+	
+	pmdTest {
+		ignoreFailures = true
+		reports {
+			xml.enabled true
+			html.enabled true
+		}
+	}
 }
 
 project(':UserCommon') {
