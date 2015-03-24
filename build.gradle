@@ -28,6 +28,7 @@ test.dependsOn(subprojects.test)
 
 subprojects {
 	apply plugin: 'pmd'
+	apply plugin: 'findbugs'
 	
 	sourceCompatibility = '1.7'
 	cobertura {
@@ -47,6 +48,22 @@ subprojects {
 		reports {
 			xml.enabled true
 			html.enabled true
+		}
+	}
+	
+	findbugsMain {
+		ignoreFailures = true
+		reports {
+			xml.enabled = true
+			html.enabled = false
+		}
+	}
+	
+	findbugsTest {
+		ignoreFailures = true
+		reports {
+			xml.enabled = true
+			html.enabled = false
 		}
 	}
 	
