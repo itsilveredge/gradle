@@ -49,6 +49,19 @@ subprojects {
 			html.enabled true
 		}
 	}
+	
+	check << {
+		File outDir = new File('build/reports/pmd/')
+		outDir.mkdirs()
+		ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+		classpath: configurations.pmd.asPath)
+		ant.cpd(minimumTokenCount: '100', format: 'xml',
+		outputFile: new File(outDir , 'cpd.xml')) {
+		fileset(dir: "src") {
+		include(name: '**/*.java')
+			}
+		}
+	} 
 }
 
 project(':UserCommon') {
