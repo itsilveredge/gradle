@@ -22,6 +22,7 @@ buildscript {
 def files = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
 cobertura {
     coverageFormats = [ 'xml', 'html' ]
+	coverageSourceDirs = ['taaskingclient.server/taashking/src','taaskingclient.server/TaashkingCommon/src','taaskingclient.userDB/UserCommon/src']
     coverageMergeDatafiles = files
 }
 test.dependsOn(subprojects.test)
@@ -34,6 +35,8 @@ subprojects {
 	sourceCompatibility = '1.7'
 	cobertura {
         coverageIgnoreTrivial = false
+		coverageFormats = [ 'xml', 'html' ]
+		coverageSourceDirs = ['src']
     }
 	
 	pmdMain {
