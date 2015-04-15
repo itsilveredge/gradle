@@ -29,6 +29,7 @@ test.dependsOn(subprojects.test)
 subprojects {
 	apply plugin: 'pmd'
 	apply plugin: 'findbugs'
+	apply plugin: 'checkstyle'
 	
 	sourceCompatibility = '1.7'
 	cobertura {
@@ -65,6 +66,18 @@ subprojects {
 			xml.enabled = true
 			html.enabled = false
 		}
+	}
+	
+	checkstyleMain {
+		ignoreFailures = true
+		showViolations = false
+		configFile = file('../../config/checkstyle/checkstyle_checks.xml')
+	}
+	
+	checkstyleTest {
+		ignoreFailures = true
+		showViolations = false
+		configFile = file('../../config/checkstyle/checkstyle_checks.xml')
 	}
 	
 	check << {
