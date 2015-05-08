@@ -23,37 +23,15 @@ project (':TKCommon') {
 	]
 	
 	type= 'swc'
-	frameworkLinkage = 'none'
+	frameworkLinkage = 'merged'
 	playerVersion = '10.0.0'
 	println 'Inside TKCommon'
 	dependencies {
-		merged files('./libs/preloader.swc')
-		merged files('./libs/preloader_adda52rummy.swc')
-		merged files('./libs/preloader_kastros.swc')
-		merged files('./libs/preloader-ringside.swc')
-		merged files('./libs/preloader-rummy.swc')
+		merged fileTree('./libs/')
 		
 		merged files('./../../swc/SFS2X_API_AS3.swc')
 		merged files('./../../swc/flexUnit/flexunit_0.9.swc')
 		merged files('./../../swc/flexUnit/hamcrest-1.0.2.swc')
-		
-		external files('./../../swc/playerglobal.swc')
-		internal files('./../../swc/framework.swc')
-		internal files('./../../swc/automation.swc')
-		merged files('./../../swc/automation_agent.swc')
-		internal files('./../../swc/automation_dmv.swc')
-		internal files('./../../swc/automation_flashflexkit.swc')
-		internal files('./../../swc/datavisualization.swc')
-		internal files('./../../swc/qtp.swc')
-		internal files('./../../swc/rpc.swc')
-		internal files('./../../swc/utilities.swc')
-		
-		merged files('./../../swc/locale/airframework_rb.swc')
-		merged files('./../../swc/locale/automation_agent_rb.swc')
-		merged files('./../../swc/locale/automation_rb.swc')
-		merged files('./../../swc/locale/datavisualization_rb.swc')
-		merged files('./../../swc/locale/framework_rb.swc')
-		merged files('./../../swc/locale/rpc_rb.swc')
 	}
 	srcDirs =['./src']
 }
@@ -74,42 +52,18 @@ project (':Lobby') {
 	]
 	
 	type= 'swc'
-	frameworkLinkage = 'none'
+	frameworkLinkage = 'merged'
 	playerVersion = '10.0.2'
 	dependencies {
 		merged project(':TKCommon')
 		
-		merged files('./libs/actionjson.swc')
-		merged files('./libs/as3corelib.swc')
-		merged files('./libs/commongraphicassets.swc')
-		merged files('./libs/preloader.swc')
-		merged files('./libs/preloader_kastros.swc')
+		merged fileTree('./libs/')
 		
-		merged files('./../TaashkingCommon/libs/preloader.swc')
-		merged files('./../TaashkingCommon/libs/preloader_adda52rummy.swc')
-		merged files('./../TaashkingCommon/libs/preloader_kastros.swc')
-		merged files('./../TaashkingCommon/libs/preloader-ringside.swc')
-		merged files('./../TaashkingCommon/libs/preloader-rummy.swc')
+		merged fileTree('./../TaashkingCommon/libs')
 		
 		merged files('./../../swc/SFS2X_API_AS3.swc')
-		
-		external files('./../../swc/playerglobal.swc')
-		internal files('./../../swc/framework.swc')
-		internal files('./../../swc/automation.swc')
-		merged files('./../../swc/automation_agent.swc')
-		internal files('./../../swc/automation_dmv.swc')
-		internal files('./../../swc/automation_flashflexkit.swc')
-		internal files('./../../swc/datavisualization.swc')
-		internal files('./../../swc/qtp.swc')
-		internal files('./../../swc/rpc.swc')
-		internal files('./../../swc/utilities.swc')
-		
-		merged files('./../../swc/locale/airframework_rb.swc')
-		merged files('./../../swc/locale/automation_agent_rb.swc')
-		merged files('./../../swc/locale/automation_rb.swc')
-		merged files('./../../swc/locale/datavisualization_rb.swc')
-		merged files('./../../swc/locale/framework_rb.swc')
-		merged files('./../../swc/locale/rpc_rb.swc')
+		merged files('./../../swc/flexUnit/flexunit_0.9.swc')
+		merged files('./../../swc/flexUnit/hamcrest-1.0.2.swc')		
 	}
 	println 'Inside Lobby'
 	srcDirs =['./src']
@@ -131,29 +85,14 @@ project (':LitePokerClient') {
 	]
 	
 	type= 'swf'
-	frameworkLinkage = 'none'
+	frameworkLinkage = 'merged'
 	playerVersion = '10.2.0'
 	
 	dependencies {
 		merged project(':Lobby')
 		merged project(':TKCommon')
 		
-		merged files('./libs/pokeravtaars.swc')
-		merged files('./libs/pokerdesignassets.swc')
-		merged files('./src/assets/mtt-Btn.swc')
-		
-		external files('./../../swc/playerglobal.swc')
-		internal files('./../../swc/framework.swc')
-		internal files('./../../swc/automation.swc')
-		merged files('./../../swc/automation_agent.swc')
-		internal files('./../../swc/automation_dmv.swc')
-		internal files('./../../swc/automation_flashflexkit.swc')
-		internal files('./../../swc/datavisualization.swc')
-		internal files('./../../swc/qtp.swc')
-		internal files('./../../swc/rpc.swc')
-		internal files('./../../swc/utilities.swc')
-		
-		
+		merged fileTree('./libs')		
 	}
 	println 'Inside LitePokerClient'
 	srcDirs =['./src']
