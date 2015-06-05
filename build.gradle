@@ -157,6 +157,12 @@ project(':UserCommon') {
 	tasks.withType(Jar) {
         //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
     }
+	
+	javadoc {
+		title = 'UserCommon Javadoc'
+		source = sourceSets.main.allJava
+		failOnError = false
+	}
 }	
 
 project (':TaashkingCommon') {
@@ -236,6 +242,12 @@ project (':TaashkingCommon') {
 	tasks.withType(Jar) {
         //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
     }
+	
+	javadoc {
+		title = 'TaashkingCommon Javadoc'
+		source = sourceSets.main.allJava
+		failOnError = false
+	}
 }
 
 project (':Taashking') {
@@ -321,4 +333,10 @@ project (':Taashking') {
 	tasks.withType(Jar) {
         //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension')
     }
+	
+	javadoc {
+		title = 'Taashking Javadoc'
+		source = sourceSets.main.allJava
+		failOnError = false
+	}
 }
