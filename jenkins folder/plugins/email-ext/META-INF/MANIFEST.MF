@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: slide
+Build-Jdk: 1.7.0_67
+Extension-Name: email-ext
+Implementation-Title: email-ext
+Implementation-Version: 2.39
+Plugin-Class: hudson.plugins.emailext.EmailExtensionPlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: email-ext
+Long-Name: Email Extension Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin
+Plugin-Version: 2.39
+Hudson-Version: 1.554.1
+Jenkins-Version: 1.554.1
+Plugin-Dependencies: config-file-provider:2.7.1;resolution:=optional,a
+ nalysis-core:1.54;resolution:=optional,token-macro:1.10,script-securi
+ ty:1.6,mailer:1.5
+Plugin-Developers: Ash Lux:ashlux:ashlux@gmail.com,Kyle Sweeney:kdswee
+ ney:,K. R. Walker:krwalker:krwalker@stellarscience.com,Seiji Sogabe:s
+ sogabe:s.sogabe@gmail.com,Alex Earl:slide:slide.o.mix@gmail.com
+

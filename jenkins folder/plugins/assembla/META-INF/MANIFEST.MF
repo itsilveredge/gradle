@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: lucamilanesio
+Build-Jdk: 1.6.0_43
+Extension-Name: assembla
+Specification-Title: Integrates Jenkins with Assembla tickets during S
+ CM update / Build.
+Implementation-Title: assembla
+Implementation-Version: 1.4
+Plugin-Class: jenkins.plugin.assembla.AssemblaPlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: assembla
+Long-Name: Assembla plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/assembla+plugin
+Plugin-Version: 1.4
+Hudson-Version: 1.458
+Jenkins-Version: 1.458
+Plugin-Developers: Luca Milanesio:lucamilanesio:luca@milanesio.org
+

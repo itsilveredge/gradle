@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: mpchlets
+Build-Jdk: 1.7.0_09
+Extension-Name: assembla-auth
+Specification-Title: A Jenkins authentication plugin that delegates to
+  Assembla oAuth
+Implementation-Title: assembla-auth
+Implementation-Version: 1.03
+Group-Id: org.jenkins-ci.plugins
+Short-Name: assembla-auth
+Long-Name: Assembla Auth Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Assembla+Auth+Plugin
+Compatible-Since-Version: 0.3
+Plugin-Version: 1.03
+Hudson-Version: 1.431
+Jenkins-Version: 1.431
+Plugin-Developers: Assembla:www.assembla.com:,Damir Milovic:damir_asse
+ mbla:,Titas Norkunas:titas:,Michael Chletsos:mpchlets:
+

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.dabsquared.gitlabjenkins.GitLabPushTrigger_-DescriptorImpl plugin="gitlab-plugin@1.1.14">
+  <project class="hudson.model.FreeStyleProject">
+    <actions/>
+    <description>Taashking Poker teamFeature project</description>
+    <keepDependencies>false</keepDependencies>
+    <properties>
+      <jenkins.plugin.assembla.AssemblaProjectProperty plugin="assembla@1.4">
+        <spaceName>taashkinclient</spaceName>
+        <backtrackEnabled>false</backtrackEnabled>
+        <siteName>https://assembla.com</siteName>
+        <pluginEnabled>false</pluginEnabled>
+      </jenkins.plugin.assembla.AssemblaProjectProperty>
+      <hudson.security.AuthorizationMatrixProperty>
+        <permission>hudson.scm.SCM.Tag:prateek.sharma</permission>
+        <permission>hudson.scm.SCM.Tag:g.virdi</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:prateek.sharma</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:g.virdi</permission>
+        <permission>hudson.model.Item.Read:anonymous</permission>
+        <permission>hudson.model.Item.Read:romil.pant</permission>
+        <permission>hudson.model.Item.Read:jagriti.saxena</permission>
+        <permission>hudson.model.Item.Read:vipin.kumar</permission>
+        <permission>hudson.model.Item.Read:prateek.sharma</permission>
+        <permission>hudson.model.Item.Read:g.virdi</permission>
+        <permission>hudson.model.Item.Read:authenticated</permission>
+        <permission>hudson.model.Item.Read:shikhersinha</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:prateek.sharma</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:g.virdi</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:romil.pant</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:jagriti.saxena</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:vipin.kumar</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:prateek.sharma</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:g.virdi</permission>
+        <permission>hudson.plugins.promoted_builds.Promotion.Promote:shikhersinha</permission>
+        <permission>hudson.model.Item.Configure:prateek.sharma</permission>
+        <permission>hudson.model.Item.Configure:g.virdi</permission>
+        <permission>hudson.model.Item.Workspace:prateek.sharma</permission>
+        <permission>hudson.model.Item.Workspace:g.virdi</permission>
+        <permission>hudson.model.Run.Delete:prateek.sharma</permission>
+        <permission>hudson.model.Run.Delete:g.virdi</permission>
+        <permission>hudson.model.Item.Discover:prateek.sharma</permission>
+        <permission>hudson.model.Item.Discover:g.virdi</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:prateek.sharma</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:g.virdi</permission>
+        <permission>hudson.model.Item.Build:romil.pant</permission>
+        <permission>hudson.model.Item.Build:jagriti.saxena</permission>
+        <permission>hudson.model.Item.Build:vipin.kumar</permission>
+        <permission>hudson.model.Item.Build:prateek.sharma</permission>
+        <permission>hudson.model.Item.Build:g.virdi</permission>
+        <permission>hudson.model.Item.Build:shikhersinha</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:prateek.sharma</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:g.virdi</permission>
+        <permission>hudson.model.Item.Cancel:vipin.kumar</permission>
+        <permission>hudson.model.Item.Cancel:prateek.sharma</permission>
+        <permission>hudson.model.Item.Cancel:g.virdi</permission>
+        <permission>hudson.model.Item.Delete:prateek.sharma</permission>
+        <permission>hudson.model.Item.Delete:g.virdi</permission>
+        <permission>hudson.model.Run.Update:prateek.sharma</permission>
+        <permission>hudson.model.Run.Update:g.virdi</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:prateek.sharma</permission>
+        <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:g.virdi</permission>
+      </hudson.security.AuthorizationMatrixProperty>
+      <hudson.plugins.promoted__builds.JobPropertyImpl plugin="promoted-builds@2.19">
+        <activeProcessNames>
+          <string>Regression Release</string>
+          <string>Developer Release</string>
+          <string>Go Live</string>
+          <string>QA Release</string>
+        </activeProcessNames>
+      </hudson.plugins.promoted__builds.JobPropertyImpl>
+      <de.pellepelster.jenkins.walldisplay.WallDisplayJobProperty plugin="jenkinswalldisplay@0.6.30"/>
+    </properties>
+    <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.4">
+      <scms>
+        <hudson.plugins.git.GitSCM plugin="git@2.3.4">
+          <configVersion>2</configVersion>
+          <userRemoteConfigs>
+            <hudson.plugins.git.UserRemoteConfig>
+              <name>origin</name>
+              <refspec> +refs/heads/develop:refs/remotes/origin/develop</refspec>
+              <url>https://git.assembla.com/taaskingclient.gradle.git</url>
+              <credentialsId>13379761-b010-4b01-9ccc-6dfa096c13b0</credentialsId>
+            </hudson.plugins.git.UserRemoteConfig>
+          </userRemoteConfigs>
+          <branches>
+            <hudson.plugins.git.BranchSpec>
+              <name>develop</name>
+            </hudson.plugins.git.BranchSpec>
+          </branches>
+          <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+          <submoduleCfg class="list"/>
+          <extensions>
+            <hudson.plugins.git.extensions.impl.LocalBranch>
+              <localBranch>develop</localBranch>
+            </hudson.plugins.git.extensions.impl.LocalBranch>
+            <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+              <relativeTargetDir>taaskingclient.gradle</relativeTargetDir>
+            </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+          </extensions>
+        </hudson.plugins.git.GitSCM>
+        <hudson.plugins.git.GitSCM plugin="git@2.3.4">
+          <configVersion>2</configVersion>
+          <userRemoteConfigs>
+            <hudson.plugins.git.UserRemoteConfig>
+              <name>origin</name>
+              <refspec>+refs/heads/feature/team-feature:refs/remotes/origin/feature/team-feature</refspec>
+              <url>https://git.assembla.com/html5poker.git</url>
+              <credentialsId>13379761-b010-4b01-9ccc-6dfa096c13b0</credentialsId>
+            </hudson.plugins.git.UserRemoteConfig>
+          </userRemoteConfigs>
+          <branches>
+            <hudson.plugins.git.BranchSpec>
+              <name>refs/heads/feature/team-feature</name>
+            </hudson.plugins.git.BranchSpec>
+          </branches>
+          <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+          <submoduleCfg class="list"/>
+          <extensions>
+            <hudson.plugins.git.extensions.impl.LocalBranch>
+              <localBranch>feature/team-feature</localBranch>
+            </hudson.plugins.git.extensions.impl.LocalBranch>
+            <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+              <relativeTargetDir>poker-game</relativeTargetDir>
+            </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+          </extensions>
+        </hudson.plugins.git.GitSCM>
+        <hudson.plugins.git.GitSCM plugin="git@2.3.4">
+          <configVersion>2</configVersion>
+          <userRemoteConfigs>
+            <hudson.plugins.git.UserRemoteConfig>
+              <name>origin</name>
+              <refspec>+refs/heads/feature/team-develop:refs/remotes/origin/feature/team-develop</refspec>
+              <url>https://git.assembla.com/taaskingclient.videoreplay.git</url>
+              <credentialsId>13379761-b010-4b01-9ccc-6dfa096c13b0</credentialsId>
+            </hudson.plugins.git.UserRemoteConfig>
+          </userRemoteConfigs>
+          <branches>
+            <hudson.plugins.git.BranchSpec>
+              <name>refs/heads/feature/team-develop</name>
+            </hudson.plugins.git.BranchSpec>
+          </branches>
+          <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+          <submoduleCfg class="list"/>
+          <extensions>
+            <hudson.plugins.git.extensions.impl.LocalBranch>
+              <localBranch>feature/team-develop</localBranch>
+            </hudson.plugins.git.extensions.impl.LocalBranch>
+            <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+              <relativeTargetDir>video-replay</relativeTargetDir>
+            </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+          </extensions>
+        </hudson.plugins.git.GitSCM>
+      </scms>
+    </scm>
+    <canRoam>true</canRoam>
+    <disabled>false</disabled>
+    <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+    <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+    <triggers>
+      <hudson.triggers.TimerTrigger>
+        <spec>H 18 * * *</spec>
+      </hudson.triggers.TimerTrigger>
+    </triggers>
+    <concurrentBuild>false</concurrentBuild>
+    <builders>
+      <hudson.tasks.Shell>
+        <command>cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient/
+/usr/local/git/bin/git reset HEAD --hard
+/usr/local/git/bin/git fetch --all
+/usr/local/git/bin/git checkout feature/team_PokerFeature
+/usr/local/git/bin/git pull origin feature/team_PokerFeature
+
+cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.server/
+/usr/local/git/bin/git reset HEAD --hard
+/usr/local/git/bin/git fetch --all
+/usr/local/git/bin/git checkout feature/team_PokerFeature
+/usr/local/git/bin/git pull origin feature/team_PokerFeature
+
+cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.userDB/
+/usr/local/git/bin/git reset HEAD --hard
+/usr/local/git/bin/git fetch --all
+/usr/local/git/bin/git checkout feature/poker
+/usr/local/git/bin/git pull origin feature/poker</command>
+      </hudson.tasks.Shell>
+      <hudson.tasks.Shell>
+        <command>cd  /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.server/AlterScripts/
+for i in `ls -R current/ | awk &apos;/:$/&amp;&amp;f{s=$0;f=0}/:$/&amp;&amp;!f{sub(/:$/,&quot;&quot;);s=$0;f=1;next}NF&amp;&amp;f{ print s&quot;/&quot;$0 }&apos;| grep sql`
+do
+    echo &quot;file=$i&quot;
+    mysql -ugauss -h192.168.2.200 &lt; $i
+done</command>
+      </hudson.tasks.Shell>
+      <hudson.tasks.Shell>
+        <command>cd  /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.server/TaashkingCommon/src
+sed -i &apos;s,localhost,192.168.2.200,g&apos; hibernate.cfg.xml
+
+cd  /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.server/TaashkingCommon/src
+sed -i &apos;s,root,gauss,g&apos; hibernate.cfg.xml
+
+cd  /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.userDB/UserCommon/src
+sed -i &apos;s,localhost,192.168.2.200,g&apos; hibernate2.cfg.xml
+
+cd  /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.userDB/UserCommon/src
+sed -i &apos;s,root,gauss,g&apos; hibernate2.cfg.xml</command>
+      </hudson.tasks.Shell>
+      <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+        <description></description>
+        <switches></switches>
+        <tasks>clean cobertura build --info -Dlog4j.ignoreTCL=true</tasks>
+        <rootBuildScriptDir>taaskingclient.gradle</rootBuildScriptDir>
+        <buildFile>build.gradle</buildFile>
+        <gradleName>Gradle</gradleName>
+        <useWrapper>false</useWrapper>
+        <makeExecutable>false</makeExecutable>
+        <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+        <useWorkspaceAsHome>false</useWorkspaceAsHome>
+      </hudson.plugins.gradle.Gradle>
+      <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+        <description></description>
+        <switches></switches>
+        <tasks>clean test build</tasks>
+        <rootBuildScriptDir>taaskingclient.gradle/client_build_file/</rootBuildScriptDir>
+        <buildFile>build.gradle</buildFile>
+        <gradleName>Gradle</gradleName>
+        <useWrapper>false</useWrapper>
+        <makeExecutable>false</makeExecutable>
+        <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+        <useWorkspaceAsHome>false</useWorkspaceAsHome>
+      </hudson.plugins.gradle.Gradle>
+      <hudson.tasks.Shell>
+        <command>cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient/
+/usr/local/git/bin/git reset HEAD --hard
+
+cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.server/
+/usr/local/git/bin/git reset HEAD --hard
+
+cd /root/.jenkins/workspace/Taashking\ Poker\ teamFeature/taaskingclient.gradle/taaskingclient.userDB/
+/usr/local/git/bin/git reset HEAD --hard</command>
+      </hudson.tasks.Shell>
+    </builders>
+    <publishers>
+      <hudson.plugins.findbugs.FindBugsPublisher plugin="findbugs@4.60">
+        <healthy></healthy>
+        <unHealthy></unHealthy>
+        <thresholdLimit>low</thresholdLimit>
+        <pluginName>[FINDBUGS] </pluginName>
+        <defaultEncoding></defaultEncoding>
+        <canRunOnFailed>false</canRunOnFailed>
+        <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+        <useStableBuildAsReference>false</useStableBuildAsReference>
+        <useDeltaValues>false</useDeltaValues>
+        <thresholds plugin="analysis-core@1.71">
+          <unstableTotalAll></unstableTotalAll>
+          <unstableTotalHigh></unstableTotalHigh>
+          <unstableTotalNormal></unstableTotalNormal>
+          <unstableTotalLow></unstableTotalLow>
+          <failedTotalAll></failedTotalAll>
+          <failedTotalHigh></failedTotalHigh>
+          <failedTotalNormal></failedTotalNormal>
+          <failedTotalLow></failedTotalLow>
+        </thresholds>
+        <shouldDetectModules>false</shouldDetectModules>
+        <dontComputeNew>true</dontComputeNew>
+        <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+        <pattern>taaskingclient.gradle/**/reports/findbugs/main.xml</pattern>
+        <isRankActivated>false</isRankActivated>
+        <excludePattern></excludePattern>
+        <includePattern></includePattern>
+      </hudson.plugins.findbugs.FindBugsPublisher>
+      <hudson.plugins.pmd.PmdPublisher plugin="pmd@3.41">
+        <healthy></healthy>
+        <unHealthy></unHealthy>
+        <thresholdLimit>low</thresholdLimit>
+        <pluginName>[PMD] </pluginName>
+        <defaultEncoding></defaultEncoding>
+        <canRunOnFailed>false</canRunOnFailed>
+        <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+        <useStableBuildAsReference>false</useStableBuildAsReference>
+        <useDeltaValues>false</useDeltaValues>
+        <thresholds plugin="analysis-core@1.71">
+          <unstableTotalAll></unstableTotalAll>
+          <unstableTotalHigh></unstableTotalHigh>
+          <unstableTotalNormal></unstableTotalNormal>
+          <unstableTotalLow></unstableTotalLow>
+          <failedTotalAll></failedTotalAll>
+          <failedTotalHigh></failedTotalHigh>
+          <failedTotalNormal></failedTotalNormal>
+          <failedTotalLow></failedTotalLow>
+        </thresholds>
+        <shouldDetectModules>false</shouldDetectModules>
+        <dontComputeNew>true</dontComputeNew>
+        <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+        <pattern>taaskingclient.gradle/**/reports/pmd/main.xml</pattern>
+      </hudson.plugins.pmd.PmdPublisher>
+      <hudson.plugins.dry.DryPublisher plugin="dry@2.41">
+        <healthy></healthy>
+        <unHealthy></unHealthy>
+        <thresholdLimit>low</thresholdLimit>
+        <pluginName>[DRY] </pluginName>
+        <defaultEncoding></defaultEncoding>
+        <canRunOnFailed>false</canRunOnFailed>
+        <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+        <useStableBuildAsReference>false</useStableBuildAsReference>
+        <useDeltaValues>false</useDeltaValues>
+        <thresholds plugin="analysis-core@1.71">
+          <unstableTotalAll></unstableTotalAll>
+          <unstableTotalHigh></unstableTotalHigh>
+          <unstableTotalNormal></unstableTotalNormal>
+          <unstableTotalLow></unstableTotalLow>
+          <failedTotalAll></failedTotalAll>
+          <failedTotalHigh></failedTotalHigh>
+          <failedTotalNormal></failedTotalNormal>
+          <failedTotalLow></failedTotalLow>
+        </thresholds>
+        <shouldDetectModules>false</shouldDetectModules>
+        <dontComputeNew>true</dontComputeNew>
+        <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+        <pattern>taaskingclient.gradle/**/**/cpd.xml</pattern>
+        <highThreshold>50</highThreshold>
+        <normalThreshold>25</normalThreshold>
+      </hudson.plugins.dry.DryPublisher>
+      <hudson.plugins.analysis.collector.AnalysisPublisher plugin="analysis-collector@1.43">
+        <healthy></healthy>
+        <unHealthy></unHealthy>
+        <thresholdLimit>low</thresholdLimit>
+        <pluginName>[ANALYSIS-COLLECTOR] </pluginName>
+        <defaultEncoding></defaultEncoding>
+        <canRunOnFailed>false</canRunOnFailed>
+        <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+        <useStableBuildAsReference>false</useStableBuildAsReference>
+        <useDeltaValues>false</useDeltaValues>
+        <thresholds plugin="analysis-core@1.71">
+          <unstableTotalAll></unstableTotalAll>
+          <unstableTotalHigh></unstableTotalHigh>
+          <unstableTotalNormal></unstableTotalNormal>
+          <unstableTotalLow></unstableTotalLow>
+          <failedTotalAll></failedTotalAll>
+          <failedTotalHigh></failedTotalHigh>
+          <failedTotalNormal></failedTotalNormal>
+          <failedTotalLow></failedTotalLow>
+        </thresholds>
+        <shouldDetectModules>false</shouldDetectModules>
+        <dontComputeNew>true</dontComputeNew>
+        <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+        <isCheckStyleDeactivated>true</isCheckStyleDeactivated>
+        <isDryDeactivated>false</isDryDeactivated>
+        <isFindBugsDeactivated>false</isFindBugsDeactivated>
+        <isPmdDeactivated>false</isPmdDeactivated>
+        <isOpenTasksDeactivated>true</isOpenTasksDeactivated>
+        <isWarningsDeactivated>true</isWarningsDeactivated>
+      </hudson.plugins.analysis.collector.AnalysisPublisher>
+      <hudson.tasks.ArtifactArchiver>
+        <artifacts>taaskingclient.gradle/**/**/libs/*.jar,taaskingclient.gradle/**/**/build/*.swf</artifacts>
+        <allowEmptyArchive>false</allowEmptyArchive>
+        <onlyIfSuccessful>true</onlyIfSuccessful>
+        <fingerprint>false</fingerprint>
+        <defaultExcludes>true</defaultExcludes>
+      </hudson.tasks.ArtifactArchiver>
+      <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.9.7">
+        <coberturaReportFile>taaskingclient.gradle/build/**/cobertura/*.xml</coberturaReportFile>
+        <onlyStable>false</onlyStable>
+        <failUnhealthy>false</failUnhealthy>
+        <failUnstable>false</failUnstable>
+        <autoUpdateHealth>false</autoUpdateHealth>
+        <autoUpdateStability>false</autoUpdateStability>
+        <zoomCoverageChart>false</zoomCoverageChart>
+        <maxNumberOfBuilds>0</maxNumberOfBuilds>
+        <failNoReports>true</failNoReports>
+        <healthyTarget>
+          <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>8000000</int>
+            </entry>
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>7000000</int>
+            </entry>
+          </targets>
+        </healthyTarget>
+        <unhealthyTarget>
+          <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>0</int>
+            </entry>
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>0</int>
+            </entry>
+          </targets>
+        </unhealthyTarget>
+        <failingTarget>
+          <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>0</int>
+            </entry>
+            <entry>
+              <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+              <int>0</int>
+            </entry>
+          </targets>
+        </failingTarget>
+        <sourceEncoding>ASCII</sourceEncoding>
+      </hudson.plugins.cobertura.CoberturaPublisher>
+      <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.3">
+        <testResults>taaskingclient.gradle\**\**\test-results\*.xml</testResults>
+        <keepLongStdio>false</keepLongStdio>
+        <healthScaleFactor>1.0</healthScaleFactor>
+      </hudson.tasks.junit.JUnitResultArchiver>
+      <hudson.tasks.Mailer plugin="mailer@1.14">
+        <recipients>gurleen.virdi@gaussnetworks.com</recipients>
+        <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+        <sendToIndividuals>true</sendToIndividuals>
+      </hudson.tasks.Mailer>
+      <hudson.plugins.covcomplplot.CovComplPlotPublisher plugin="covcomplplot@1.1.1">
+        <analyzer>Cobertura</analyzer>
+        <verbose>false</verbose>
+        <excludeGetterSetter>false</excludeGetterSetter>
+        <locateTopMost>true</locateTopMost>
+      </hudson.plugins.covcomplplot.CovComplPlotPublisher>
+    </publishers>
+    <buildWrappers/>
+  </project>
+  <gitlabApiToken></gitlabApiToken>
+  <gitlabHostUrl></gitlabHostUrl>
+  <ignoreCertificateErrors>false</ignoreCertificateErrors>
+  <projectBranches/>
+</com.dabsquared.gitlabjenkins.GitLabPushTrigger_-DescriptorImpl>

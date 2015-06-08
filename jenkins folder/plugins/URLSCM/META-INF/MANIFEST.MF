@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jlf
+Build-Jdk: 1.6.0_29
+Extension-Name: URLSCM
+Specification-Title: Allows specification of URLs to poll and copy int
+ o the workspace
+Implementation-Title: URLSCM
+Implementation-Version: 1.6
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: URLSCM
+Long-Name: URL SCM plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/URL+SCM
+Plugin-Version: 1.6
+Hudson-Version: 1.392
+Plugin-Developers: Michael Donohue:mdonohue:,Jesse Farinacci:jieryn:ji
+ eryn@gmail.com
+

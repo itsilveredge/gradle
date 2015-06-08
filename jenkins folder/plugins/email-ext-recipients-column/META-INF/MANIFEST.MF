@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: yboev
+Build-Jdk: 1.6.0_23
+Extension-Name: email-ext-recipients-column
+Implementation-Title: email-ext-recipients-column
+Implementation-Version: 1.0
+Group-Id: org.jenkins-ci.plugins
+Short-Name: email-ext-recipients-column
+Long-Name: Email Ext Recipients Column Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/Email+Ext+Recipients+
+ Column+Plugin
+Plugin-Version: 1.0
+Hudson-Version: 1.494
+Jenkins-Version: 1.494
+Plugin-Dependencies: javadoc:1.0,email-ext:2.25,mailer:1.4,maven-plugi
+ n:1.494
+Plugin-Developers: Stefan Brausch:stefanbrausch:stefan.brausch@1und1.d
+ e,Yordan Boev:boev:iordan.boev@gmail.com
+

@@ -1,0 +1,40 @@
+<l:dependencies xmlns:l='licenses'>
+  <l:dependency name='Assembla Auth Plugin' groupId='org.jenkins-ci.plugins' artifactId='assembla-auth' version='1.03' url='http://wiki.jenkins-ci.org/display/JENKINS/Assembla+Auth+Plugin'>
+    <l:description>A Jenkins authentication plugin that delegates to Assembla oAuth</l:description>
+    <l:license name='MIT license' />
+  </l:dependency>
+  <l:dependency name='Gson' groupId='com.google.code.gson' artifactId='gson' version='2.2.2' url='http://code.google.com/p/google-gson/'>
+    <l:description>Google Gson library</l:description>
+    <l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt' />
+  </l:dependency>
+  <l:dependency name='HttpCore' groupId='org.apache.httpcomponents' artifactId='httpcore' version='4.1' url='http://hc.apache.org/httpcomponents-core-ga/'>
+    <l:description>HttpComponents Core (blocking I/O)</l:description>
+    <l:license name='Apache License' url='LICENSE.txt' />
+  </l:dependency>
+  <l:dependency name='Commons Codec' groupId='commons-codec' artifactId='commons-codec' version='1.4' url='http://commons.apache.org/codec/'>
+    <l:description>The codec package contains simple encoder and decoders for
+     various formats such as Base64 and Hexadecimal.  In addition to these
+     widely used encoders and decoders, the codec package also maintains a
+     collection of phonetic encoding utilities.</l:description>
+    <l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt' />
+  </l:dependency>
+  <l:dependency name='JSON (JavaScript Object Notation)' groupId='org.json' artifactId='json' version='20090211' url='http://www.json.org/java/index.html'>
+    <l:description>JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+    It is easy for humans to read and write. It is easy for machines to parse and generate.
+    It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition
+    - December 1999. JSON is a text format that is completely language independent but uses
+    conventions that are familiar to programmers of the C-family of languages, including C, C++, C#,
+    Java, JavaScript, Perl, Python, and many others.
+    These properties make JSON an ideal data-interchange language.</l:description>
+    <l:license name='provided without support or warranty' url='http://www.json.org/license.html' />
+  </l:dependency>
+  <l:dependency name='Commons Logging' groupId='commons-logging' artifactId='commons-logging' version='1.1.1' url='http://commons.apache.org/logging'>
+    <l:description>Commons Logging is a thin adapter allowing configurable bridging to other,
+    well known logging systems.</l:description>
+    <l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt' />
+  </l:dependency>
+  <l:dependency name='HttpClient' groupId='org.apache.httpcomponents' artifactId='httpclient' version='4.1' url='http://hc.apache.org/httpcomponents-client'>
+    <l:description>HttpComponents Client (base module)</l:description>
+    <l:license name='Apache License' url='LICENSE.txt' />
+  </l:dependency>
+</l:dependencies>

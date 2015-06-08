@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: mindless
+Build-Jdk: 1.6.0_24
+Extension-Name: promoted-builds-simple
+Implementation-Title: promoted-builds-simple
+Implementation-Version: 1.9
+Plugin-Class: hudson.plugins.promoted_builds_simple.PromotedBuildsSimp
+ lePlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: promoted-builds-simple
+Long-Name: Promoted Builds (Simple)
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Promoted+Builds+Simple
+ +Plugin
+Plugin-Version: 1.9
+Hudson-Version: 1.398
+Jenkins-Version: 1.398
+Plugin-Dependencies: copyartifact:1.14;resolution:=optional,maven-plug
+ in:1.398;resolution:=optional
+Plugin-Developers: Alan Harder:mindless:
+

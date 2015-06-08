@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.testlink.TestLinkBuilderDescriptor plugin="testlink@3.10">
+  <testLinkBuildType>hudson.plugins.testlink.TestLinkBuilder</testLinkBuildType>
+  <installations>
+    <hudson.plugins.testlink.TestLinkInstallation>
+      <name>TestLink Setup</name>
+      <url>http://192.168.2.250/index.php</url>
+      <devKey>130f631994c57c299388c7bfcb1ee4a7</devKey>
+      <testLinkJavaAPIProperties></testLinkJavaAPIProperties>
+    </hudson.plugins.testlink.TestLinkInstallation>
+  </installations>
+</hudson.plugins.testlink.TestLinkBuilderDescriptor>

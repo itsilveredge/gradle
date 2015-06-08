@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.promoted__builds__simple.PromotedBuildsSimplePlugin plugin="promoted-builds-simple@1.9">
+  <levels>
+    <hudson.plugins.promoted__builds__simple.PromotionLevel>
+      <name>QA Release</name>
+      <icon>qa.gif</icon>
+      <isAutoKeep>true</isAutoKeep>
+    </hudson.plugins.promoted__builds__simple.PromotionLevel>
+    <hudson.plugins.promoted__builds__simple.PromotionLevel>
+      <name>Developer Release</name>
+      <icon>ga.gif</icon>
+      <isAutoKeep>true</isAutoKeep>
+    </hudson.plugins.promoted__builds__simple.PromotionLevel>
+    <hudson.plugins.promoted__builds__simple.PromotionLevel>
+      <name>Regression</name>
+      <icon>qa-green.gif</icon>
+      <isAutoKeep>true</isAutoKeep>
+    </hudson.plugins.promoted__builds__simple.PromotionLevel>
+  </levels>
+</hudson.plugins.promoted__builds__simple.PromotedBuildsSimplePlugin>

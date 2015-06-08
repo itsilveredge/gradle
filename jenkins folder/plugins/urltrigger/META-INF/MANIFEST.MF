@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gregory
+Build-Jdk: 1.6.0_65
+Extension-Name: urltrigger
+Implementation-Title: urltrigger
+Implementation-Version: 0.37
+Group-Id: org.jenkins-ci.plugins
+Short-Name: urltrigger
+Long-Name: Jenkins URLTrigger Plug-in
+Url: http://wiki.jenkins-ci.org/display/JENKINS/URLTrigger+Plugin
+Plugin-Version: 0.37
+Hudson-Version: 1.484
+Jenkins-Version: 1.484
+Plugin-Developers: Gregory Boissinot:gbois:
+

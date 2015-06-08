@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gregory
+Build-Jdk: 1.6.0_39
+Extension-Name: batch-task
+Implementation-Title: batch-task
+Implementation-Version: 1.17
+Group-Id: org.jenkins-ci.plugins
+Short-Name: batch-task
+Long-Name: Jenkins batch task plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Batch+Task+Plugin
+Plugin-Version: 1.17
+Hudson-Version: 1.424
+Jenkins-Version: 1.424
+Plugin-Developers: Kohsuke Kawaguchi:kohsuke:,Alan Harder:mindless:
+

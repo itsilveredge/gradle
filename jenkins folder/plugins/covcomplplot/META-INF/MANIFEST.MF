@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: mindless
+Build-Jdk: 1.6.0_26
+Extension-Name: covcomplplot
+Implementation-Title: covcomplplot
+Implementation-Version: 1.1.1
+Group-Id: org.jenkins-ci.plugins
+Short-Name: covcomplplot
+Long-Name: Coverage/Complexity Scatter Plot PlugIn
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Coverage+Complexity+Sc
+ atter+Plot+PlugIn
+Plugin-Version: 1.1.1
+Hudson-Version: null
+Plugin-Developers: JunHo Yoon:junoyoon:junoyoon@gmail.com
+

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: lsd
+Build-Jdk: 1.6.0_30
+Extension-Name: jshint-checkstyle
+Specification-Title: This plug-in generates the trend report for    JS
+ Hint reports in Checkstyle format. JSHint is an open    source static
+  code analysis program.
+Implementation-Title: jshint-checkstyle
+Implementation-Version: 3.36
+Plugin-Class: hudson.plugins.jshint.CheckStylePlugin
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: jshint-checkstyle
+Long-Name: JSHint Report Plug-in
+Url: http://wiki.jenkins-ci.org/x/GYCGAQ
+Plugin-Version: 3.36
+Hudson-Version: 1.424
+Jenkins-Version: 1.424
+Plugin-Dependencies: maven-plugin:1.424;resolution:=optional,analysis-
+ core:1.49,ant:1.1,token-macro:1.5.1;resolution:=optional,dashboard-vi
+ ew:2.2;resolution:=optional
+Plugin-Developers: Levon Saldamli:levsa:levon.sa@gmail.com
+

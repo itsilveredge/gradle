@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>1.458</version>
+	</parent>
+	<artifactId>assembla</artifactId>
+  	<version>1.4</version>
+  	<packaging>hpi</packaging>
+  	<name>Assembla plugin</name>
+    <description>Integrates Jenkins with Assembla tickets during SCM update / Build.</description>
+	
+       <url>http://wiki.jenkins-ci.org/display/JENKINS/assembla+plugin</url>
+  
+          <developers>
+            <developer>
+                  <id>lucamilanesio</id>
+                  <name>Luca Milanesio</name>
+                  <email>luca@milanesio.org</email>
+             </developer>
+          </developers>
+
+	<scm>
+    	   <connection>scm:git:ssh://github.com/jenkinsci/assembla-plugin.git</connection>
+    	   <developerConnection>scm:git:ssh://git@github.com/jenkinsci/assembla-plugin.git</developerConnection>
+    	   <url>https://github.com/jenkinsci/assembla-plugin</url>
+  	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+    <repositories>
+        <repository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>  
+  
+	

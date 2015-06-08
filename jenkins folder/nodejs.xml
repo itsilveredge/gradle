@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.plugins.nodejs.NodeJSPlugin plugin="nodejs@0.2.1">
+  <installations>
+    <jenkins.plugins.nodejs.tools.NodeJSInstallation>
+      <name>NodeJS</name>
+      <home>/home/Integration_Server/node-v0.12.2-linux-x64</home>
+      <properties/>
+      <nodeJSHome>/home/Integration_Server/node-v0.12.2-linux-x64</nodeJSHome>
+    </jenkins.plugins.nodejs.tools.NodeJSInstallation>
+  </installations>
+</jenkins.plugins.nodejs.NodeJSPlugin>

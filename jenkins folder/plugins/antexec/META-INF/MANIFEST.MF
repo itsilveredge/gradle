@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: milos
+Build-Jdk: 1.7.0_25
+Extension-Name: antexec
+Specification-Title: Adds new build step for running directly written 
+ Apache Ant code
+Implementation-Title: antexec
+Implementation-Version: 1.10
+Group-Id: org.jenkins-ci.plugins
+Short-Name: antexec
+Long-Name: AntExec
+Url: https://wiki.jenkins-ci.org/display/JENKINS/AntExec+plugin
+Plugin-Version: 1.10
+Hudson-Version: 1.480
+Jenkins-Version: 1.480
+Plugin-Dependencies: token-macro:1.7,ant:1.2
+Plugin-Developers: Milos Svasek:svasek:svasek@gmail.com
+

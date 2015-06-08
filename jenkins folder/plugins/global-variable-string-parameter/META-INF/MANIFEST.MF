@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: pmckeown
+Build-Jdk: 1.7.0_01
+Extension-Name: global-variable-string-parameter
+Specification-Title: Allow usage of global variables in string parameter
+Implementation-Title: global-variable-string-parameter
+Implementation-Version: 1.2
+Group-Id: org.jenkins-ci.plugins
+Short-Name: global-variable-string-parameter
+Long-Name: Global Variable String Parameter
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Global+Variable+String
+ +Parameter+Plugin
+Plugin-Version: 1.2
+Hudson-Version: 1.525
+Jenkins-Version: 1.525
+Plugin-Developers: Patrick McKeown:pmaccamp:pmaccamp@sbcglobal.net,Mar
+ io Vuong:marsbar:
+

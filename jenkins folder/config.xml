@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors/>
+  <version>1.596</version>
+  <numExecutors>2</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy">
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:g.virdi</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:prateek.sharma</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:g.virdi</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:prateek.sharma</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:g.virdi</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:prateek.sharma</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:g.virdi</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:prateek.sharma</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:g.virdi</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Build:g.virdi</permission>
+    <permission>hudson.model.Computer.Build:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Configure:g.virdi</permission>
+    <permission>hudson.model.Computer.Configure:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Connect:g.virdi</permission>
+    <permission>hudson.model.Computer.Connect:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Create:g.virdi</permission>
+    <permission>hudson.model.Computer.Create:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Delete:g.virdi</permission>
+    <permission>hudson.model.Computer.Delete:prateek.sharma</permission>
+    <permission>hudson.model.Computer.Disconnect:g.virdi</permission>
+    <permission>hudson.model.Computer.Disconnect:prateek.sharma</permission>
+    <permission>hudson.model.Hudson.Administer:g.virdi</permission>
+    <permission>hudson.model.Hudson.Administer:prateek.sharma</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:g.virdi</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:prateek.sharma</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
+    <permission>hudson.model.Hudson.Read:g.virdi</permission>
+    <permission>hudson.model.Hudson.Read:prateek.sharma</permission>
+    <permission>hudson.model.Hudson.RunScripts:g.virdi</permission>
+    <permission>hudson.model.Hudson.RunScripts:prateek.sharma</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:g.virdi</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:prateek.sharma</permission>
+    <permission>hudson.model.Item.Build:g.virdi</permission>
+    <permission>hudson.model.Item.Build:prateek.sharma</permission>
+    <permission>hudson.model.Item.Cancel:g.virdi</permission>
+    <permission>hudson.model.Item.Cancel:prateek.sharma</permission>
+    <permission>hudson.model.Item.Configure:g.virdi</permission>
+    <permission>hudson.model.Item.Configure:prateek.sharma</permission>
+    <permission>hudson.model.Item.Create:g.virdi</permission>
+    <permission>hudson.model.Item.Create:prateek.sharma</permission>
+    <permission>hudson.model.Item.Delete:g.virdi</permission>
+    <permission>hudson.model.Item.Delete:prateek.sharma</permission>
+    <permission>hudson.model.Item.Discover:g.virdi</permission>
+    <permission>hudson.model.Item.Discover:prateek.sharma</permission>
+    <permission>hudson.model.Item.Read:authenticated</permission>
+    <permission>hudson.model.Item.Read:g.virdi</permission>
+    <permission>hudson.model.Item.Read:prateek.sharma</permission>
+    <permission>hudson.model.Item.Workspace:authenticated</permission>
+    <permission>hudson.model.Item.Workspace:g.virdi</permission>
+    <permission>hudson.model.Item.Workspace:prateek.sharma</permission>
+    <permission>hudson.model.Run.Delete:g.virdi</permission>
+    <permission>hudson.model.Run.Delete:prateek.sharma</permission>
+    <permission>hudson.model.Run.Update:g.virdi</permission>
+    <permission>hudson.model.Run.Update:prateek.sharma</permission>
+    <permission>hudson.model.View.Configure:g.virdi</permission>
+    <permission>hudson.model.View.Configure:prateek.sharma</permission>
+    <permission>hudson.model.View.Create:g.virdi</permission>
+    <permission>hudson.model.View.Create:prateek.sharma</permission>
+    <permission>hudson.model.View.Delete:g.virdi</permission>
+    <permission>hudson.model.View.Delete:prateek.sharma</permission>
+    <permission>hudson.model.View.Read:g.virdi</permission>
+    <permission>hudson.model.View.Read:prateek.sharma</permission>
+    <permission>hudson.plugins.promoted_builds.Promotion.Promote:g.virdi</permission>
+    <permission>hudson.plugins.promoted_builds.Promotion.Promote:prateek.sharma</permission>
+    <permission>hudson.scm.SCM.Tag:g.virdi</permission>
+    <permission>hudson.scm.SCM.Tag:prateek.sharma</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Promote:g.virdi</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Promote:prateek.sharma</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Release:g.virdi</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Release:prateek.sharma</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks>
+    <jdk>
+      <name>Java7</name>
+      <home>/opt/jdk1.7.0_75</home>
+      <properties/>
+    </jdk>
+  </jdks>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <slaves/>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <description></description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.4">
+      <owner class="hudson" reference="../../.."/>
+      <name>Project Dashboard</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>html5poker</string>
+        <string>Taashking Poker Epic</string>
+        <string>Taashking Poker Features</string>
+        <string>Taashking Poker Team Dragons</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+      <useCssStyle>false</useCssStyle>
+      <includeStdJobList>false</includeStdJobList>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets>
+        <hudson.plugins.findbugs.dashboard.WarningsPriorityGraphPortlet plugin="findbugs@4.60">
+          <id>dashboard_portlet_12752</id>
+          <name>FindBugs warnings trend graph (priority distribution)</name>
+          <width>500</width>
+          <height>200</height>
+          <dayCountString>30</dayCountString>
+        </hudson.plugins.findbugs.dashboard.WarningsPriorityGraphPortlet>
+      </leftPortlets>
+      <rightPortlets>
+        <hudson.plugins.findbugs.dashboard.WarningsNewVersusFixedGraphPortlet plugin="findbugs@4.60">
+          <id>dashboard_portlet_4564</id>
+          <name>FindBugs warnings trend graph (new vs. fixed)</name>
+          <width>500</width>
+          <height>200</height>
+          <dayCountString>30</dayCountString>
+        </hudson.plugins.findbugs.dashboard.WarningsNewVersusFixedGraphPortlet>
+      </rightPortlets>
+      <topPortlets>
+        <hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
+          <id>dashboard_portlet_13023</id>
+          <name>Jenkins jobs list</name>
+        </hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
+      </topPortlets>
+      <bottomPortlets>
+        <hudson.plugins.view.dashboard.test.TestTrendChart>
+          <id>dashboard_portlet_26930</id>
+          <name>Test Trend Chart</name>
+          <graphWidth>300</graphWidth>
+          <graphHeight>220</graphHeight>
+          <dateRange>0</dateRange>
+          <dateShift>0</dateShift>
+          <displayStatus>ALL</displayStatus>
+        </hudson.plugins.view.dashboard.test.TestTrendChart>
+        <hudson.plugins.view.dashboard.test.TestStatisticsChart>
+          <id>dashboard_portlet_24384</id>
+          <name>Test Statistics Chart</name>
+        </hudson.plugins.view.dashboard.test.TestStatisticsChart>
+      </bottomPortlets>
+    </hudson.plugins.view.dashboard.Dashboard>
+    <com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView plugin="build-monitor-plugin@1.6+build.140">
+      <owner class="hudson" reference="../../.."/>
+      <name>Project Monitor</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
+        <string>html5poker</string>
+        <string>Taashking Poker Epic</string>
+        <string>Taashking Poker Features</string>
+        <string>Taashking Poker Team Dragons</string>
+      </jobNames>
+      <jobFilters/>
+      <columns/>
+      <recurse>false</recurse>
+      <order class="com.smartcodeltd.jenkinsci.plugins.buildmonitor.order.ByDisplayName"/>
+    </com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView>
+  </views>
+  <primaryView>All</primaryView>
+  <slaveAgentPort>0</slaveAgentPort>
+  <label></label>
+  <nodeProperties/>
+  <globalNodeProperties/>
+  <noUsageStatistics>true</noUsageStatistics>
+</hudson>

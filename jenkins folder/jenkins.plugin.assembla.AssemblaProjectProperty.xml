@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.plugin.assembla.AssemblaProjectProperty_-DescriptorImpl plugin="assembla@1.4">
+  <sites>
+    <jenkins.plugin.assembla.api.AssemblaSite>
+      <username>pratts</username>
+      <password>prateek*SHM1</password>
+      <url>https://assembla.com</url>
+      <pattern>\[#[0-9]+\]</pattern>
+    </jenkins.plugin.assembla.api.AssemblaSite>
+  </sites>
+</jenkins.plugin.assembla.AssemblaProjectProperty_-DescriptorImpl>

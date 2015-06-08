@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2015-02-09 10:55:16.689 UTC</timestamp>
+  <original>
+    <name>Taashking Poker</name>
+    <number>88</number>
+  </original>
+  <md5sum>5bfbaf130e29c6c67c3ef453da5433fb</md5sum>
+  <fileName>Taashking-Gradle.jar</fileName>
+  <usages>
+    <entry>
+      <string>Taashking Poker</string>
+      <ranges>88</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

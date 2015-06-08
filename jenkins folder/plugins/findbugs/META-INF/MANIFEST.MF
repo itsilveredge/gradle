@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hafner
+Build-Jdk: 1.7.0_71
+Extension-Name: findbugs
+Specification-Title: This plug-in generates the trend report for FindB
+ ugs,
+     an open source program which uses static analysis to look for bugs
+     in Java code.
+Implementation-Title: findbugs
+Implementation-Version: 4.60
+Plugin-Class: hudson.plugins.findbugs.FindBugsPlugin
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: findbugs
+Long-Name: FindBugs Plug-in
+Url: http://wiki.jenkins-ci.org/x/GYAs
+Plugin-Version: 4.60
+Hudson-Version: 1.554.3
+Jenkins-Version: 1.554.3
+Plugin-Dependencies: dashboard-view:2.9.4;resolution:=optional,token-m
+ acro:1.10;resolution:=optional,analysis-core:1.71,maven-plugin:2.4;re
+ solution:=optional
+Plugin-Developers: Ulli Hafner:drulli:ullrich.hafner@gmail.com
+

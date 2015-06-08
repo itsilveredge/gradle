@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.5</maven.compiler.target>
+    </properties>
+    <parent>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>plugin</artifactId>
+        <version>1.480</version>
+    </parent>
+
+    <artifactId>antexec</artifactId>
+    <version>1.10</version>
+    <packaging>hpi</packaging>
+    <name>AntExec</name>
+    <description>Adds new build step for running directly written Apache Ant code</description>
+    <url>https://wiki.jenkins-ci.org/display/JENKINS/AntExec+plugin</url>
+
+    <developers>
+        <developer>
+            <id>svasek</id>
+            <name>Milos Svasek</name>
+            <email>svasek@gmail.com</email>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Project Owner</role>
+                <role>Project Lead Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT license</name>
+            <comments>All source code is under the MIT license.</comments>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/jenkinsci/antexec-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/jenkinsci/antexec-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/antexec-plugin</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>token-macro</artifactId>
+            <version>1.7</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <targetPath>${project.build.directory}/${project.artifactId}</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>version.txt</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>ant-contrib</groupId>
+                                    <artifactId>ant-contrib</artifactId>
+                                    <version>1.0b3</version>
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.artifactId}/META-INF/lib
+                                    </outputDirectory>
+                                    <destFileName>ant-contrib.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- To check compatibility with Java 1.5 run: mvn compile animal-sniffer:check -->
+                <groupId>org.jvnet</groupId>
+                <artifactId>animal-sniffer</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <signature>
+                        <groupId>org.jvnet.animal-sniffer</groupId>
+                        <artifactId>java1.5</artifactId>
+                        <version>1.0</version>
+                    </signature>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>  
+  
+
