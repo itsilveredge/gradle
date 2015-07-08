@@ -163,6 +163,11 @@ project(':UserCommon') {
 		source = sourceSets.main.allJava
 		failOnError = false
 	}
+	
+	test {
+		// set JVM arguments for the test JVM(s)
+		jvmArgs '-XX:-UseSplitVerifier'
+	}
 }	
 
 project (':TaashkingCommon') {
@@ -247,6 +252,11 @@ project (':TaashkingCommon') {
 		title = 'TaashkingCommon Javadoc'
 		source = sourceSets.main.allJava
 		failOnError = false
+	}
+	
+	test {
+		// set JVM arguments for the test JVM(s)
+		jvmArgs '-XX:-UseSplitVerifier'
 	}
 }
 
@@ -338,5 +348,10 @@ project (':Taashking') {
 		title = 'Taashking Javadoc'
 		source = sourceSets.main.allJava
 		failOnError = false
+	}
+	
+	test {
+		// set JVM arguments for the test JVM(s)
+		jvmArgs '-XX:-UseSplitVerifier'
 	}
 }
