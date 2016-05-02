@@ -5,3 +5,5 @@
 /build/
 build/tmp/jar/MANIFEST.MF
 build/libs/Gradle-Test-Taashking.jar
+/.project
+client_build_file/.gradle/*
