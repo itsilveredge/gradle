@@ -13,3 +13,6 @@
 [submodule "taaskingclient.node"]
 	path = taaskingclient.node
 	url = https://pratts:prateek*SHM1@git.assembla.com/taaskingclient.node.git
+[submodule "html5poker.ngpoker"]
+	path = html5poker.ngpoker
+	url = https://pratts:prateek*SHM1@git.assembla.com/html5poker.ngpoker.git
