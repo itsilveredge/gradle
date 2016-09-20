@@ -12,6 +12,7 @@ project (':TKCommon') {
 	apply plugin: 'flashbuilder'
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	//flexHome='/opt/adobe-flex-sdk_3.6.0'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	additionalCompilerOptions = [
 		"-debug=false",
@@ -41,6 +42,7 @@ project (':Lobby') {
 	apply plugin: 'flashbuilder'
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	//flexHome='/opt/adobe-flex-sdk_3.6.0'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	additionalCompilerOptions = [
 		"-debug=false",
@@ -74,6 +76,7 @@ project (':LitePokerClient') {
 	apply plugin: 'flashbuilder'
 	
 	//flexHome='D:/tools/adobe-flex-sdk_3.6.0/'
+	//flexHome='/opt/adobe-flex-sdk_3.6.0'
 	flexHome='/home/Integration_Server/adobe-flex-sdk_3.6.0'
 	additionalCompilerOptions = [
 		"-debug=false",
