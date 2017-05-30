@@ -16,3 +16,9 @@
 [submodule "html5poker.ngpoker"]
 	path = html5poker.ngpoker
 	url = https://pratts:prateek*SHM1@git.assembla.com/html5poker.ngpoker.git
+[submodule "taaskingclient.nodeTourneyPanel"]
+	path = taaskingclient.nodeTourneyPanel
+	url = https://pratts:prateek*SHM1@git.assembla.com/taaskingclient.nodeTourneyPanel.git
+[submodule "taaskingclient.videoreplay"]
+	path = taaskingclient.videoreplay
+	url = https://pratts:prateek*SHM1@git.assembla.com/taaskingclient.videoreplay.git
