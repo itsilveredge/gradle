@@ -42,4 +42,5 @@ gradle -b gradle-replay/build.gradle clean war
 echo "Building ngpoker"
 cd html5poker.ngpoker
 grunt --force build
-cd ..
+
+cd $WORKSPACE/poker/
