@@ -120,6 +120,14 @@ project(':UserCommon') {
 		}	
 	}
 
+	task changeHibernateUserCommon {
+		println 'Inside changeHibernate in usercommon to reset the url'
+		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
+		tkcFile = tkcFile.replaceAll('192.168.2.205','localhost')
+		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
+		println 'UserCommon modified'
+	}
+
 	jar {
 		archiveName = "UserCommon.jar"
 		version = null
@@ -135,7 +143,8 @@ project(':UserCommon') {
 			include '.gitignore'
 		}
 	}
-
+	jar.dependsOn(changeHibernateUserCommon)
+	
 	task cleanExtra(type: Delete) {
 		delete './build'
 		delete './bin'
@@ -191,6 +200,14 @@ project (':TaashkingCommon') {
 		}
 	}
 		
+	task changeHibernateTaashkingCommon {
+		println 'Inside changeHibernate in usercommon to reset the url'
+		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
+		tkcFile = tkcFile.replaceAll('192.168.2.205','localhost')
+		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
+		println 'UserCommon modified'
+	}
+
 	jar {
 		archiveName = "TaashKingCommon.jar"
 		version = null
@@ -205,6 +222,7 @@ project (':TaashkingCommon') {
 			include 'hibernate.reveng.xml'
 		}
 	}
+	jar.dependsOn(changeHibernateTaashkingCommon)
 
 	sourceSets {
 		main {
@@ -282,6 +300,10 @@ project (':Taashking') {
 		}
 	}
 		
+	task testTask {
+		println 'Inside testTask'
+	}
+
 	jar {
 		archiveName = "Taashking.jar"
 		version = null
@@ -305,7 +327,8 @@ project (':Taashking') {
 			include 'uml_taashking.umldi'
 		}
 	}
-
+	jar.dependsOn(testTask)
+	
 	sourceSets {
 		main {
 			java {
