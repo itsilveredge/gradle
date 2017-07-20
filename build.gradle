@@ -22,7 +22,11 @@ buildscript {
 def files = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
 cobertura {
     coverageFormats = [ 'xml', 'html' ]
-	coverageSourceDirs = ['taaskingclient.server/taashking/src','taaskingclient.server/TaashkingCommon/src','taaskingclient.userDB/UserCommon/src']
+	coverageSourceDirs = [
+							'taaskingclient.server/taashking/src',
+							'taaskingclient.server/TaashkingCommon/src',
+							'taaskingclient.userDB/UserCommon/src'
+						]
     coverageMergeDatafiles = files
 }
 test.dependsOn(subprojects.test)
@@ -123,7 +127,7 @@ project(':UserCommon') {
 	task changeHibernateUserCommon {
 		println 'Inside changeHibernate in usercommon to reset the url'
 		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
-		tkcFile = tkcFile.replaceAll('192.168.2.205','localhost')
+		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
 		println 'UserCommon modified'
 	}
@@ -201,11 +205,11 @@ project (':TaashkingCommon') {
 	}
 		
 	task changeHibernateTaashkingCommon {
-		println 'Inside changeHibernate in usercommon to reset the url'
+		println 'Inside changeHibernate in TaashKingCommon to reset the url'
 		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
-		tkcFile = tkcFile.replaceAll('192.168.2.205','localhost')
+		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
-		println 'UserCommon modified'
+		println 'TaashKingCommon modified'
 	}
 
 	jar {

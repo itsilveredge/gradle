@@ -1,23 +1,6 @@
-#!/bin/bash
-# ./poker_build.sh ngpoker node tp server userdb replay devip
-ngpoker_branch=$1
-node_branch=$2
-tourneyPanel_branch=$3
-server_branch=$4
-userDB_branch=$5
-videoreplay_branch=$6
-dev_ip=$7
+echo $WORKSPACE
 
-echo "ngpoker $ngpoker_branch"
-echo "node $node_branch"
-echo "tp $tourneyPanel_branch"
-echo "server $server_branch"
-echo "userdb $userDB_branch"
-echo "replay $videoreplay_branch"
-echo "dev_ip $dev_ip"
-
-echo `pwd`
-
+cd $WORKSPACE/poker
 if [ ! -f html5poker.ngpoker/.git ]; then
     echo "Initializing ngpoker project"
     git submodule update --init -- html5poker.ngpoker
@@ -57,57 +40,43 @@ git submodule foreach git reset --hard HEAD
 echo "Fetching new changes in each submodule"
 git submodule foreach git fetch --all --prune
 
-cd html5poker.ngpoker
+cd $WORKSPACE/poker/html5poker.ngpoker
 git checkout $ngpoker_branch
 git pull origin $ngpoker_branch
-cd ..
 
-cd taaskingclient.node
+cd $WORKSPACE/poker/taaskingclient.node
 git checkout $node_branch
 git pull origin $node_branch
-cd ..
 
-cd taaskingclient.nodeTourneyPanel
+cd $WORKSPACE/poker/taaskingclient.nodeTourneyPanel
 git checkout $tourneyPanel_branch
 git pull origin $tourneyPanel_branch
-cd ..
 
-cd taaskingclient.server
+cd $WORKSPACE/poker/taaskingclient.server
 git checkout $server_branch
 git pull origin $server_branch
-cd ..
 
-cd taaskingclient.userDB
+cd $WORKSPACE/poker/taaskingclient.userDB
 git checkout $userDB_branch
 git pull origin $userDB_branch
-cd ..
 
-cd taaskingclient.videoreplay
+cd $WORKSPACE/poker/taaskingclient.videoreplay
 git checkout $videoreplay_branch
 git pull origin $videoreplay_branch
-cd ..
+
+cd $WORKSPACE/poker/
 
 echo "Changing the username in hibernate files"
 
-sed -i "s,root,gauss,g" taaskingclient.server/TaashkingCommon/src/hibernate.cfg.xml
-sed -i "s,localhost,$dev_ip,g" taaskingclient.server/TaashkingCommon/src/hibernate.cfg.xml
+sed -i 's,root,gauss,g' taaskingclient.server/TaashkingCommon/src/hibernate.cfg.xml
+sed -i 's,localhost,$dev_ip,g' taaskingclient.server/TaashkingCommon/src/hibernate.cfg.xml
 
-sed -i "s,root,gauss,g" taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
-sed -i "s,localhost,$dev_ip,g" taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
+sed -i 's,root,gauss,g' taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
+sed -i 's,localhost,$dev_ip,g' taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
 
 echo "Changing the mysql properties file in video replay"
-sed -i "s,root,gauss,g" taaskingclient.videoreplay/WebContent/WEB-INF/classes/MySql.properties
+sed -i 's,root,gauss,g' taaskingclient.videoreplay/WebContent/WEB-INF/classes/MySql.properties
 
 echo "Building ngpoker"
 cd html5poker.ngpoker
 grunt --force build
-cd ..
-
-echo "Building server"
-gradle -Ddev_ip=$dev_ip clean build -x test
-
-echo "Building replay"
-cd gradle-replay
-gradle clean war
-
-cd ..
