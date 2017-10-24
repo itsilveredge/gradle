@@ -95,9 +95,6 @@ sed -i "s,localhost,$dev_ip,g" taaskingclient.server/TaashkingCommon/src/hiberna
 sed -i "s,root,gauss,g" taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
 sed -i "s,localhost,$dev_ip,g" taaskingclient.userDB/UserCommon/src/hibernate2.cfg.xml
 
-echo "Changing the mysql properties file in video replay"
-sed -i "s,root,gauss,g" taaskingclient.videoreplay/WebContent/WEB-INF/classes/MySql.properties
-
 echo "Building ngpoker"
 cd html5poker.ngpoker
 grunt --force build
@@ -107,7 +104,7 @@ echo "Building server"
 gradle -Ddev_ip=$dev_ip clean build -x test
 
 echo "Building replay"
-cd gradle-replay
-gradle clean war
+cd taaskingclient.videoreplay
+mvn clean install
 
 cd ..
