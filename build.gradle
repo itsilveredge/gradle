@@ -6,7 +6,6 @@ allprojects {
 	}
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
-	apply plugin: 'cobertura'
 }
 
 buildscript {
@@ -14,91 +13,10 @@ buildscript {
         mavenCentral()
 		mavenLocal()
     }
-    dependencies {
-        classpath "net.saliman:gradle-cobertura-plugin:2.2.2"
-    }
 }
 
-def files = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
-cobertura {
-    coverageFormats = [ 'xml', 'html' ]
-	coverageSourceDirs = [
-							'taaskingclient.server/taashking/src',
-							'taaskingclient.server/TaashkingCommon/src',
-							'taaskingclient.userDB/UserCommon/src'
-						]
-    coverageMergeDatafiles = files
-}
-test.dependsOn(subprojects.test)
-
-subprojects {
-	apply plugin: 'pmd'
-	apply plugin: 'findbugs'
-	apply plugin: 'checkstyle'
-	
+subprojects {	
 	sourceCompatibility = '1.7'
-	cobertura {
-        coverageIgnoreTrivial = false
-		coverageFormats = [ 'xml', 'html' ]
-		coverageSourceDirs = ['src']
-    }
-	
-	pmdMain {
-		ignoreFailures = true
-		reports {
-			xml.enabled true
-			html.enabled true
-		}
-	}
-	
-	pmdTest {
-		ignoreFailures = true
-		reports {
-			xml.enabled true
-			html.enabled true
-		}
-	}
-	
-	findbugsMain {
-		ignoreFailures = true
-		reports {
-			xml.enabled = true
-			html.enabled = false
-		}
-	}
-	
-	findbugsTest {
-		ignoreFailures = true
-		reports {
-			xml.enabled = true
-			html.enabled = false
-		}
-	}
-	
-	checkstyleMain {
-		ignoreFailures = true
-		showViolations = false
-		configFile = file('../../config/checkstyle/checkstyle_checks.xml')
-	}
-	
-	checkstyleTest {
-		ignoreFailures = true
-		showViolations = false
-		configFile = file('../../config/checkstyle/checkstyle_checks.xml')
-	}
-	
-	check << {
-		File outDir = new File('build/reports/pmd/')
-		outDir.mkdirs()
-		ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
-		classpath: configurations.pmd.asPath)
-		ant.cpd(minimumTokenCount: '100', format: 'xml',
-		outputFile: new File(outDir , 'cpd.xml')) {
-		fileset(dir: "src") {
-		include(name: '**/*.java')
-			}
-		}
-	} 
 }
 
 project(':UserCommon') {
