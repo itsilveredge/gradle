@@ -19,6 +19,8 @@ subprojects {
 	sourceCompatibility = '1.7'
 }
 
+println JavaVersion.current()
+
 project(':UserCommon') {
 	println "Inside UserCommon"
 	dependencies {
@@ -106,20 +108,22 @@ project (':TaashkingCommon') {
 	println "Inside TaashKingCommon"
 	
 	configurations {
-		provided
+		compile {
+		    description = 'compile classpath'
+		    transitive = true
+		}
+		runtime {
+		    extendsFrom compile
+		}
+	}
+	configurations.compile {
+		description = 'compile classpath'
 	}
 
-	sourceSets.main.compileClasspath += [configurations.provided]
 	dependencies {
 		compile fileTree('../../resources')
 		testCompile project(':UserCommon')
-		provided project(':UserCommon')
-	}
-
-	eclipse {
-		classpath {
-			plusConfigurations+=[configurations.provided]
-		}
+		compile project(':UserCommon')
 	}
 		
 	task changeHibernateTaashkingCommon {
@@ -204,22 +208,24 @@ project (':Taashking') {
 
 	println "Inside Taashking"
 	configurations {
-		provided
+		compile {
+		    description = 'compile classpath'
+		    transitive = true
+		}
+		runtime {
+		    extendsFrom compile
+		}
+	}
+	configurations.compile {
+		description = 'compile classpath'
 	}
 
-	sourceSets.main.compileClasspath += [configurations.provided]
 	dependencies {
 		compile fileTree('../../resources')
-		provided project(':UserCommon')
-		provided project(':TaashkingCommon')
+		compile project(':UserCommon')
+		compile project(':TaashkingCommon')
 		testCompile project(':UserCommon')
 		testCompile project(':TaashkingCommon')
-	}
-
-	eclipse {
-		classpath {
-			plusConfigurations+=[configurations.provided]
-		}
 	}
 		
 	task testTask {
