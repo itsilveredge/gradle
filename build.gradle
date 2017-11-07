@@ -17,6 +17,16 @@ buildscript {
 
 subprojects {	
 	sourceCompatibility = '1.7'
+	apply plugin: 'findbugs'
+
+	findbugs {
+		sourceSets = [sourceSets.main]
+		ignoreFailures = true
+    	reportsDir = file("$project.buildDir/findbugsReports")
+	    effort = "min"
+    	showProgress = true
+	    reportLevel = "high"
+	}
 }
 
 println JavaVersion.current()
