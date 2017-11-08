@@ -1,2 +1,0 @@
-include ':VideoReplay'
-project(':VideoReplay').projectDir = new File('../taaskingclient.videoreplay')
