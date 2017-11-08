@@ -13,26 +13,43 @@ buildscript {
         mavenCentral()
 		mavenLocal()
     }
+	dependencies {
+		classpath "de.aaschmid:gradle-cpd-plugin:1.0"
+	}
 }
 
 subprojects {	
 	sourceCompatibility = '1.7'
-	apply plugin: 'findbugs'
+	apply plugin: "findbugs"
+	apply plugin: "pmd"
+	apply plugin: "cpd"
+	
+	cpd {
+    	toolVersion = '5.4.2' // defaults to '5.4.2'; just available for v5.2.0 and higher (see explanation above)
+	}
+
+	cpdCheck {
+		ignoreFailures = true
+		source = sourceSets.main.allJava
+	}
 
 	findbugs {
 		sourceSets = [sourceSets.main]
 		ignoreFailures = true
-    	reportsDir = file("$project.buildDir/findbugsReports")
+    	reportsDir = file("$project.buildDir/reports/findbugs")
 	    effort = "min"
     	showProgress = true
 	    reportLevel = "high"
 	}
+
+	pmd {
+		ignoreFailures = true
+		sourceSets = [sourceSets.main]
+		reportsDir = file("$project.buildDir/reports/pmd")
+	}
 }
 
-println JavaVersion.current()
-
 project(':UserCommon') {
-	println "Inside UserCommon"
 	dependencies {
 		compile fileTree('../../resources')
 		testCompile fileTree('../../resources')
@@ -50,25 +67,20 @@ project(':UserCommon') {
 			resources {
 				srcDir './src'
 			}
-			println "Inside sourcesets in UserCommon"
 		}	
 	}
 
 	task changeHibernateUserCommon {
-		println 'Inside changeHibernate in usercommon to reset the url'
 		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
-		println 'UserCommon modified'
 	}
 
 	jar {
 		archiveName = "UserCommon.jar"
 		version = null
-		println "Inside jar in UserCommon"
 		
 		from('./') {
-			println 'Inside / in UserCommon'
 			include '.classpath'
 			include 'settings.gradle'
 			include '.project'
@@ -82,14 +94,8 @@ project(':UserCommon') {
 	task cleanExtra(type: Delete) {
 		delete './build'
 		delete './bin'
-		println 'Deleted build/,bin/,UserCommon.jar'
 	}
 	clean.dependsOn(cleanExtra)
-
-	task cleanBuild(type: Delete) {
-		println "Inside clean build in UserCommon"
-	}
-	build.dependsOn(cleanBuild)
 
 	repositories {
 		flatDir {
@@ -97,26 +103,14 @@ project(':UserCommon') {
 		}
 	}
 	
-	tasks.withType(Jar) {
-        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
-    }
-	
 	javadoc {
 		title = 'UserCommon Javadoc'
 		source = sourceSets.main.allJava
 		failOnError = false
 	}
-	
-	test {
-		// set JVM arguments for the test JVM(s)
-		jvmArgs '-XX:-UseSplitVerifier'
-	}
 }	
 
 project (':TaashkingCommon') {
-
-	println "Inside TaashKingCommon"
-	
 	configurations {
 		compile {
 		    description = 'compile classpath'
@@ -126,6 +120,7 @@ project (':TaashkingCommon') {
 		    extendsFrom compile
 		}
 	}
+
 	configurations.compile {
 		description = 'compile classpath'
 	}
@@ -137,19 +132,15 @@ project (':TaashkingCommon') {
 	}
 		
 	task changeHibernateTaashkingCommon {
-		println 'Inside changeHibernate in TaashKingCommon to reset the url'
 		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
-		println 'TaashKingCommon modified'
 	}
 
 	jar {
 		archiveName = "TaashKingCommon.jar"
 		version = null
-		println "Inside jar in TaashkingCommon"
 		from('./') {
-			println 'Inside / in TaashkingCommon'
 			include '.classpath'
 			include '.project'
 			include 'build.gradle'
@@ -168,7 +159,6 @@ project (':TaashkingCommon') {
 			resources {
 				srcDir './src'
 			}
-			println "Inside sourcesets in TaashkingCommon"
 			
 			test.java {
 				srcDir './src/test'
@@ -176,47 +166,20 @@ project (':TaashkingCommon') {
 		}	
 	}
 
-	compileTestJava {
-		println 'Inside compileTestJava in TaashkingCommon'
-	}
-
-	repositories {
-		flatDir {
-			dirs './lib'
-		}
-	}
-
 	task cleanExtra(type: Delete) {
 		delete './build'
 		delete './bin'
-		println 'Deleted build/,bin/,TaashKingCommon.jar'
 	}
 	clean.dependsOn(cleanExtra)
-
-	task cleanBuild(type: Delete) {
-	}
-	cleanBuild.dependsOn(cleanExtra)
-	build.dependsOn(cleanBuild)
-	
-	tasks.withType(Jar) {
-        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\__lib__')
-    }
 	
 	javadoc {
 		title = 'TaashkingCommon Javadoc'
 		source = sourceSets.main.allJava
 		failOnError = false
 	}
-	
-	test {
-		// set JVM arguments for the test JVM(s)
-		jvmArgs '-XX:-UseSplitVerifier'
-	}
 }
 
 project (':Taashking') {
-
-	println "Inside Taashking"
 	configurations {
 		compile {
 		    description = 'compile classpath'
@@ -237,17 +200,11 @@ project (':Taashking') {
 		testCompile project(':UserCommon')
 		testCompile project(':TaashkingCommon')
 	}
-		
-	task testTask {
-		println 'Inside testTask'
-	}
 
 	jar {
 		archiveName = "Taashking.jar"
 		version = null
-		println "Inside jar in Taashking"
 		from('./') {
-			println 'Inside / in Taashking'
 			include '.classpath'
 			include '.project'
 			include '.reverse.properties'
@@ -265,7 +222,6 @@ project (':Taashking') {
 			include 'uml_taashking.umldi'
 		}
 	}
-	jar.dependsOn(testTask)
 	
 	sourceSets {
 		main {
@@ -275,7 +231,6 @@ project (':Taashking') {
 			resources {
 				srcDir './src'
 			}
-			println "Inside sourcesets in Taashking"
 			
 			test.java {
 				srcDir './src/poker/junit'
@@ -283,36 +238,15 @@ project (':Taashking') {
 		}	
 	}
 
-	repositories {
-		flatDir {
-			dirs './lib'
-		}
-	}
-
 	task cleanExtra(type: Delete) {
 		delete './build'
 		delete './bin'
-		println 'Deleted build/,bin/,Taashking.jar'
 	}
 	clean.dependsOn(cleanExtra)
-
-	task cleanBuild(type: Delete) {
-		
-	}
-	build.dependsOn(cleanBuild)
-	
-	tasks.withType(Jar) {
-        //destinationDir=file('C:\\SmartFoxServer_2X\\SFS2X\\extensions\\MyFirstExtension')
-    }
 	
 	javadoc {
 		title = 'Taashking Javadoc'
 		source = sourceSets.main.allJava
 		failOnError = false
-	}
-	
-	test {
-		// set JVM arguments for the test JVM(s)
-		jvmArgs '-XX:-UseSplitVerifier'
 	}
 }
