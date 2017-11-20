@@ -100,8 +100,6 @@ project(':UserCommon') {
 	}
 
 	task createJar (type: Jar){
-		dependsOn 'test'
-		dependsOn 'cobertura'
 		println 'inside uc'
 		archiveName = "UserCommon.jar"
 		version = null
@@ -167,8 +165,6 @@ project (':TaashkingCommon') {
 	}
 
 	task createJar (type: Jar) {
-		dependsOn 'test'
-		dependsOn 'cobertura'
 		println 'inside tkc'
 		archiveName = "TaashKingCommon.jar"
 		version = null
