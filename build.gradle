@@ -98,6 +98,9 @@ project(':UserCommon') {
 	}
 
 	jar {
+		dependsOn 'check'
+		dependsOn 'cobertura'
+		dependsOn 'changeHibernateUserCommon'
 		println 'inside uc'
 		archiveName = "UserCommon.jar"
 		version = null
@@ -111,7 +114,6 @@ project(':UserCommon') {
 			include '.gitignore'
 		}
 	}
-	changeHibernateUserCommon.dependsOn(check)
 	jar.dependsOn(changeHibernateUserCommon)
 	
 	task cleanExtra(type: Delete) {
@@ -161,6 +163,9 @@ project (':TaashkingCommon') {
 	}
 
 	jar {
+		dependsOn 'check'
+		dependsOn 'cobertura'
+		dependsOn 'changeHibernateTaashkingCommon'
 		println 'inside tkc'
 		archiveName = "TaashKingCommon.jar"
 		version = null
@@ -173,7 +178,6 @@ project (':TaashkingCommon') {
 			include 'hibernate.reveng.xml'
 		}
 	}
-	changeHibernateTaashkingCommon.dependsOn(check)
 	jar.dependsOn(changeHibernateTaashkingCommon)
 
 	sourceSets {
