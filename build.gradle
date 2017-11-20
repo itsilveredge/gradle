@@ -56,7 +56,6 @@ subprojects {
 		ignoreFailures = true
     	reportsDir = file("$project.buildDir/reports/findbugs")
 	    effort = "min"
-    	showProgress = true
 	    reportLevel = "high"
 	}
 
@@ -111,6 +110,7 @@ project(':UserCommon') {
 			include '.gitignore'
 		}
 	}
+	changeHibernateUserCommon.dependsOn(test)
 	jar.dependsOn(changeHibernateUserCommon)
 	
 	task cleanExtra(type: Delete) {
@@ -171,6 +171,7 @@ project (':TaashkingCommon') {
 			include 'hibernate.reveng.xml'
 		}
 	}
+	changeHibernateTaashkingCommon.dependsOn(test)
 	jar.dependsOn(changeHibernateTaashkingCommon)
 
 	sourceSets {
