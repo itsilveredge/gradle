@@ -92,15 +92,16 @@ project(':UserCommon') {
 	}
 
 	task changeHibernateUserCommon {
+		dependsOn 'test'
+		dependsOn 'cobertura'
 		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
 	}
 
-	jar {
-		dependsOn 'check'
+	task createJar (type: Jar){
+		dependsOn 'test'
 		dependsOn 'cobertura'
-		dependsOn 'changeHibernateUserCommon'
 		println 'inside uc'
 		archiveName = "UserCommon.jar"
 		version = null
@@ -114,7 +115,8 @@ project(':UserCommon') {
 			include '.gitignore'
 		}
 	}
-	jar.dependsOn(changeHibernateUserCommon)
+	createJar.dependsOn(changeHibernateUserCommon)
+	jar.dependsOn(createJar)
 	
 	task cleanExtra(type: Delete) {
 		delete './build'
@@ -157,15 +159,16 @@ project (':TaashkingCommon') {
 	}
 		
 	task changeHibernateTaashkingCommon {
+		dependsOn 'test'
+		dependsOn 'cobertura'
 		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
 	}
 
-	jar {
-		dependsOn 'check'
+	task createJar (type: Jar) {
+		dependsOn 'test'
 		dependsOn 'cobertura'
-		dependsOn 'changeHibernateTaashkingCommon'
 		println 'inside tkc'
 		archiveName = "TaashKingCommon.jar"
 		version = null
@@ -178,7 +181,8 @@ project (':TaashkingCommon') {
 			include 'hibernate.reveng.xml'
 		}
 	}
-	jar.dependsOn(changeHibernateTaashkingCommon)
+	createJar.dependsOn(changeHibernateTaashkingCommon)
+	jar.dependsOn(createJar)
 
 	sourceSets {
 		main {
