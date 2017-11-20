@@ -4,8 +4,9 @@ allprojects {
 		mavenCentral()
 		mavenLocal()
 	}
+
 	apply plugin: 'java'
-	apply plugin: 'eclipse'
+	apply plugin: 'net.saliman.cobertura'
 }
 
 buildscript {
@@ -15,8 +16,18 @@ buildscript {
     }
 	dependencies {
 		classpath "de.aaschmid:gradle-cpd-plugin:1.0"
+		classpath "net.saliman:gradle-cobertura-plugin:2.5.1"
 	}
 }
+
+def subCoberturaFiles = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
+cobertura {
+    coverageFormats = [ 'xml' ]
+    coverageSourceDirs = subprojects.sourceSets.main.allSource.srcDirs.flatten()
+    coverageMergeDatafiles = subCoberturaFiles
+}
+test.dependsOn(subprojects.test)
+
 
 subprojects {	
 	sourceCompatibility = '1.7'
@@ -24,8 +35,15 @@ subprojects {
 	apply plugin: "pmd"
 	apply plugin: "cpd"
 	
+	cobertura {
+		coverageIgnoreTrivial = false
+		coverageFormats = [ 'xml' ]
+		coverageReportDir = file("$project.buildDir/reports/cobertura")
+	}
+	
+	
 	cpd {
-    	toolVersion = '5.4.2' // defaults to '5.4.2'; just available for v5.2.0 and higher (see explanation above)
+    	toolVersion = '5.4.2'
 	}
 
 	cpdCheck {
@@ -46,6 +64,10 @@ subprojects {
 		ignoreFailures = true
 		sourceSets = [sourceSets.main]
 		reportsDir = file("$project.buildDir/reports/pmd")
+	}
+
+	test {
+		ignoreFailures = true
 	}
 }
 
