@@ -92,8 +92,6 @@ project(':UserCommon') {
 	}
 
 	task changeHibernateUserCommon {
-		//dependsOn 'test'
-		//dependsOn 'cobertura'
 		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
@@ -114,6 +112,13 @@ project(':UserCommon') {
 		}
 	}
 	jar.dependsOn(changeHibernateUserCommon)
+
+	task changeHibernateUserCommonForTests {
+		String tkcFile = file('src/hibernate2.cfg.xml').getText('UTF-8')
+		tkcFile = tkcFile.replaceAll('localhost', System.getProperty('dev_ip'))
+		file('src/hibernate2.cfg.xml').write(tkcFile, 'UTF-8' )
+	}
+	test.dependsOn(changeHibernateUserCommonForTests)
 	
 	task cleanExtra(type: Delete) {
 		delete './build'
@@ -156,8 +161,6 @@ project (':TaashkingCommon') {
 	}
 		
 	task changeHibernateTaashkingCommon {
-		//dependsOn 'test'
-		//dependsOn 'cobertura'
 		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
 		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
@@ -177,6 +180,13 @@ project (':TaashkingCommon') {
 		}
 	}
 	jar.dependsOn(changeHibernateTaashkingCommon)
+
+	task changeHibernateTaashkingCommonForTests {
+		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
+		tkcFile = tkcFile.replaceAll('localhost', System.getProperty('dev_ip'))
+		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
+	}
+	test.dependsOn(changeHibernateTaashkingCommonForTests)
 
 	sourceSets {
 		main {
