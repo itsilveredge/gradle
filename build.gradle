@@ -270,7 +270,7 @@ project (':Taashking') {
 			}
 			
 			test.java {
-				srcDir './src/poker/junit'
+				//srcDir './src/poker/junit'
 			}
 		}	
 	}
