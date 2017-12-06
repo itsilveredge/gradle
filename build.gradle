@@ -91,10 +91,10 @@ project(':UserCommon') {
 		}	
 	}
 
-	task changeHibernateUserCommon << {
+	task changeHibernateUserCommon  {doLast{
 		String ucFile1 = file('src/hibernate2.cfg.xml').getText('UTF-8')
 		ucFile1 = ucFile1.replaceAll(System.getProperty('dev_ip'),'localhost')
-		file('src/hibernate2.cfg.xml').write(ucFile1, 'UTF-8' )
+		file('src/hibernate2.cfg.xml').write(ucFile1, 'UTF-8' )}
 	}
 
 	jar {
@@ -113,10 +113,10 @@ project(':UserCommon') {
 	}
 	jar.dependsOn(changeHibernateUserCommon)
 
-	task changeHibernateUserCommonForTests << {
+	task changeHibernateUserCommonForTests {doLast{
 		String ucFile2 = file('src/hibernate2.cfg.xml').getText('UTF-8')
 		ucFile2 = ucFile2.replaceAll('localhost', System.getProperty('dev_ip'))
-		file('src/hibernate2.cfg.xml').write(ucFile2, 'UTF-8' )
+		file('src/hibernate2.cfg.xml').write(ucFile2, 'UTF-8' )}
 	}
 	test.dependsOn(changeHibernateUserCommonForTests)
 	
@@ -160,10 +160,10 @@ project (':TaashkingCommon') {
 		compile project(':UserCommon')
 	}
 		
-	task changeHibernateTaashkingCommon << {
+	task changeHibernateTaashkingCommon  {doLast{
 		String tkcFile = file('./src/hibernate.cfg.xml').getText('UTF-8')
 		tkcFile = tkcFile.replaceAll(System.getProperty('dev_ip'),'localhost')
-		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )
+		file('./src/hibernate.cfg.xml').write(tkcFile, 'UTF-8' )}
 	}
 
 	jar {
@@ -181,10 +181,10 @@ project (':TaashkingCommon') {
 	}
 	jar.dependsOn(changeHibernateTaashkingCommon)
 
-	task changeHibernateTaashkingCommonForTests << {
+	task changeHibernateTaashkingCommonForTests  {doLast{
 		String tkcFile2 = file('./src/hibernate.cfg.xml').getText('UTF-8')
 		tkcFile2 = tkcFile2.replaceAll('localhost', System.getProperty('dev_ip'))
-		file('./src/hibernate.cfg.xml').write(tkcFile2, 'UTF-8' )
+		file('./src/hibernate.cfg.xml').write(tkcFile2, 'UTF-8' )}
 	}
 	test.dependsOn(changeHibernateTaashkingCommonForTests)
 
