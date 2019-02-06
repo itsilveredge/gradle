@@ -30,7 +30,7 @@ test.dependsOn(subprojects.test)
 
 
 subprojects {	
-	sourceCompatibility = '1.7'
+	sourceCompatibility = '1.8'
 	apply plugin: "findbugs"
 	apply plugin: "pmd"
 	apply plugin: "cpd"
